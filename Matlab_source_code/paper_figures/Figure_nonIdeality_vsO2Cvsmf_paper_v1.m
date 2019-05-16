@@ -124,12 +124,6 @@ combined_SRH_org=[mole_frac_fit_lowRH_org,mole_frac_fit_upperRH_org]';
 [combined_SRH_water, O2C_SRH_water]=sort_and_remove_duplicates_KGv1(combined_SRH_water, O2C_SRH_water);
 [combined_SRH_org, O2C_SRH_org]=sort_and_remove_duplicates_KGv1(combined_SRH_org, O2C_SRH_org);
 
-% kappa_SatCritical=thresholding_data_to_nan_KGv1(kappa_SatCritical,0.05,1);
-% figure
-% scatter(O2C_values,kappa_SatCritical,[20])
-% figure
-% scatter(kappa_SatCritical,SatCritical)
-% 
 
 plot_name=['Figure water activity vs O2C paper1 test'];
  paper_postion=[0, 0, 3.5, 3.5].*1;
@@ -147,7 +141,6 @@ fliped_color=flip(artistic_color);
 set(gca,'Colormap',fliped_color)
 
 hold on
-% surf(1-mole_frac_scan,O2C_values,thresholding_data_to_nan_KGv1(activity_water,0,1)','LineStyle','none')
 
 Cmatrix=contourf(1-mole_frac_scan,O2C_values,thresholding_data_to_nan_KGv1(activity_water,0,1)','LineWidth',1,'LineStyle','none',...
     'LineColor',[0.9501960784313726 0.9501960784313726 0.9501960784313726],...

@@ -1,5 +1,4 @@
 function output=replace_data_A_to_B_KGv1(data_in, A ,B)
-%output=thresholding_data_to_nan_KGv1(data_in, lower_bound, upper_bound)
 % Created by Kyle Gorkowski on 2012-Jan-24  4.20 PM
 % Updated by Kyle Gorkowski [GORKOWFALCON] on 2016-Sep-10  1:54 PM
 % Updated by Kyle Gorkowski [GORKOWFALCON] on 2016-Oct-08 11:38 AM
@@ -38,11 +37,5 @@ else
     replacement_data=not(full_mask).*B;
 end
 
-% for i=1:1:s(1,1)
-%     for k=1:1:s(1,2)
-%         if data_in(i,k)>upper_bound || data_in(i,k)<lower_bound
-%             data_in(i,k)=x_value;
-%         end
-%     end
-% end
+
 output=good_data+replacement_data;
