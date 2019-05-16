@@ -1,0 +1,5 @@
+Progress... BAT simulations
+Percent Done 25% Time Left 44 sec
+Percent Done 50% Time Left 28 sec
+Percent Done 75% Time Left 14 sec
+Finished at 05/16/19 Thu 10:21 AM  Total Time 56 sec
