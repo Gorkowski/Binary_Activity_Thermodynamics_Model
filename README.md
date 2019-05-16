@@ -23,5 +23,5 @@ You can also install the runtime engine independently from https://www.mathworks
 Then run the installed program, and a file dialog box will appear. Then select one of the example input files 'Input_examples\simple_input_single_run.txt'.
 
 ## Generate Figures From Paper
-The Figures presented in Gorkowski et al. (2019) can be reproduced using the source code in 'Matlab_source_code\paper_figures'.
+The figures presented in Gorkowski et al. (2019) can be reproduced using the source code in 'Matlab_source_code\paper_figures'.
 <!-- ## Data Repository TBD-->
