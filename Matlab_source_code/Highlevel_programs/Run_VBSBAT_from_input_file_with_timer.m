@@ -15,7 +15,7 @@ end
 back_slashes=strfind(file_full_path,'\');
 cd(file_full_path(1:back_slashes(end)))
 
-% read input file
+% read input file, and outputs simulation object/structure
 simulation_input=read_input_file(file_full_path);
 
 % make output folder
@@ -29,20 +29,17 @@ BAT_timer_fig = figure(...
         'Name',['BAT'], 'Units', 'inches',...
         'Position', [.5 6 2.5 1],...
         'Color',[0.027450980392157 0.149019607843137 0.235294117647059],...
-        'NumberTitle', 'off','MenuBar', 'none');%,...
-%         'NumberTitle', 'off',...
-%         'Resize', 'off',...
-%         'MenuBar', 'none' );
-BAT_logo=load_bat_logo;
-axes1 = axes('Parent',BAT_timer_fig,...
+        'NumberTitle', 'off','MenuBar', 'none');
+BAT_logo=load_bat_logo; % load BAT logo
+BAT_image_axis = axes('Parent',BAT_timer_fig,... % creat image plot axes on BAT_timer_fig
     'Position',[0 0 1 .6], 'Visible','off');
-hold(axes1,'on');
-axis(axes1,'tight');
-axis(axes1,'ij');
+hold(BAT_image_axis,'on'); % modify image axis settings 
+axis(BAT_image_axis,'tight');
+axis(BAT_image_axis,'ij'); %changes axis directions
 
-image(BAT_logo,'Parent',axes1);
+image(BAT_logo,'Parent',BAT_image_axis); % adds image to BAT_image_axis
 
-text_anno=annotation(BAT_timer_fig,'textbox',...
+text_anno=annotation(BAT_timer_fig,'textbox',... % gits object for text annotation, which will be updated periodically 
     [0.00115207373271889 0.59375 0.997695852534562 0.395833333333333],...
     'Color',[1 1 1],...
     'VerticalAlignment','middle',...
@@ -50,7 +47,7 @@ text_anno=annotation(BAT_timer_fig,'textbox',...
     'Interpreter','none',...
     'FitBoxToText','off',...
     'EdgeColor','none');
-drawnow
+drawnow % draws graph
 
 %% start simulations
 total_sims=size(simulation_input,2);
@@ -94,10 +91,10 @@ for i=1:total_sims
 
     
     %update timer
-    timer_text=progressbartext(i/total_sims,'no');
+    timer_text=progressbartext(i/total_sims,'no'); 
     if not(isempty(timer_text))
-        text_anno.String=timer_text;
-        drawnow
+        text_anno.String=timer_text; % addes updated time to text object
+        drawnow % draws graph update
     end
 
 end
