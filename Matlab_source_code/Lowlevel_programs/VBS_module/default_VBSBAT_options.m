@@ -21,7 +21,7 @@ VBSBAT_options.q_alpha.q_alpha_bounds_mean=[10^-6,1];
 
 VBSBAT_options.q_alphaVBS.Option_to_overwrite_two_phase_calculation='yes';
 VBSBAT_options.q_alphaVBS.overwrite_threshold_two_phase_fraction_difference=0;
-VBSBAT_options.q_alphaVBS.method_to_use='mean_prop'; %
+VBSBAT_options.q_alphaVBS.method_to_use='individual'; %
 VBSBAT_options.q_alphaVBS.method_to_use_options={'mean_prop', 'individual'};
 % VBSBAT_options.q_alphaVBS.two_phase_Cstar_average='mean';
 

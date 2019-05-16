@@ -11,8 +11,8 @@ McGlashan_refinement_mode='interpolate'; % 'perfect water activity' 'none' 'inte
 
 % individual species simulation VBSBAT 
 VBSBAT_options=default_VBSBAT_options('default');%'robust' 'default'
-VBSBAT_options.q_alpha.min_spread_in_aw=10^-6;
-VBSBAT_options.q_alphaVBS.method_to_use='individual';%mean_prop or individual
+% VBSBAT_options.q_alpha.min_spread_in_aw=10^-6;
+% VBSBAT_options.q_alphaVBS.method_to_use='individual';%mean_prop or individual
 % mean prop species simulation VBSBAT
 VBSBAT_options_mean=VBSBAT_options;
 VBSBAT_options_mean.VBSBAT_NN_options.NN_type='individual_properties'; 
