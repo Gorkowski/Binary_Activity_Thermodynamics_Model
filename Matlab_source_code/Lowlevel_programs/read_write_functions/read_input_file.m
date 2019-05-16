@@ -120,8 +120,9 @@ for i=1:size(input_file,1)
     if system_start && not(contains(texLine, 'M (g/mol)')) && sum(regexp(texLine,'\d'))>0 % past the header line and contains some numbers
         first_comma=strfind(texLine,',');
         % something funny with textscan, as I think I only need to call texscan once,
-        % but it kept on messing up on the second half of the numbers.
-        system_input_cell = [textscan(texLine(1:first_comma(1,7)-1),'%f,%f,%f,%f,%f,%s,%s,'),textscan(texLine(first_comma(1,7)+1:first_comma(1,9)-1),'%f,%f')];
+        % but it kept on messing up on the second half of the numbers. 
+        %,textscan(texLine(first_comma(1,6)+1:first_comma(1,7)-1),'%s')
+        system_input_cell = [textscan(texLine(1:first_comma(1,7)-1),'%f,%f,%f,%f,%f,%s,%s'),textscan(texLine(first_comma(1,7)+1:first_comma(1,9)-1),'%f,%f')];
         
         simulation_input(sim_i).system.Molecular_weight(system_i,1)=cell2mat(system_input_cell(1,1));
         simulation_input(sim_i).system.O2C_values(system_i,1)=cell2mat(system_input_cell(1,2));

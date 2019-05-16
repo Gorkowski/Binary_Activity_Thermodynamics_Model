@@ -7,13 +7,21 @@ function Run_VBSBAT_from_input_file_with_timer(file_full_path)
 
 if not(exist('file_full_path'))
     % set default options
-    [file,path] = uigetfile('*.*','Select VBSBAT input file');
+    [file,path] = uigetfile('*.txt','Select VBSBAT input file [csv or txt]');
     file_full_path=[path file];
 end
+
+
 
 % move to file location
 back_slashes=strfind(file_full_path,'\');
 cd(file_full_path(1:back_slashes(end)))
+
+% % convert csv extention to txt
+% if strcmpi(file_full_path(end-3:end), '.csv') % check if file is csv
+%    copyfile(file_full_path, [file_full_path(1:end-4) '.txt'])% changes csv extention to txt
+%    file_full_path=[file_full_path(1:end-4) '.txt']; % sets to new text file
+% end
 
 % read input file, and outputs simulation object/structure
 simulation_input=read_input_file(file_full_path);
