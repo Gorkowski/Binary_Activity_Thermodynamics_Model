@@ -7,7 +7,7 @@ function Run_VBSBAT_from_input_file_with_timer(file_full_path)
 
 if not(exist('file_full_path'))
     % set default options
-    [file,path] = uigetfile('*.txt','Select VBSBAT input file [csv or txt]');
+    [file,path] = uigetfile('*.txt','Select VBSBAT input file');
     file_full_path=[path file];
 end
 

@@ -4,9 +4,7 @@
 %%
 % loads AIOMFAC data and generates comparison plots. Using direct calls to
 % VBSBAT and not using input file format
-
-%
-% cd('C:\Users\kkgor\OneDrive\McGill_Docs\Papers_and_Presentation\BAT_paper\Data\AIOMFAC\Testv2\Graphs')
+% outputs 
 
 clear
 McGlashan_refinement_mode='interpolate'; % 'perfect water activity' 'none' 'interpolate'
