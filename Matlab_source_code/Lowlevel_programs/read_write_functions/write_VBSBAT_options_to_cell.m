@@ -9,7 +9,7 @@ function [options_2write]=write_VBSBAT_options_to_cell(VBSBAT_options);
 % VBSBAT_options=default_VBSBAT_options('default');%'robust' 'default'
 
 
-options_2write=cell(24,1);
+options_2write=cell(22,1);
 k=1;
 options_2write(k,1)={['VBSBAT_options.run_mode_used='  VBSBAT_options.run_mode_used, ...
     ',{default,robust,NN only,beta only} ']};
@@ -24,15 +24,15 @@ options_2write(k,1)={['VBSBAT_options.plot_PM=' VBSBAT_options.plot_PM ',{yes, n
 k=k+1;
 options_2write(k,1)={['VBSBAT_options.mean_BAT_functional_group=' VBSBAT_options.mean_BAT_functional_group, ...
     ',{used in mean beta phase qalpha calc.: hydroxyl;carboxyl;ether;ketone;ester;hydroperoxide;hydroperoxideSOA;PEG}']};
-k=k+1;
-options_2write(k,1)={['VBSBAT_options.q_alpha.org_1phase_shift_in_aw=' num2str(VBSBAT_options.q_alpha.org_1phase_shift_in_aw), ...
-    ',{optional offset in a_w_sep}']};
+% k=k+1;
+% options_2write(k,1)={['VBSBAT_options.q_alpha.org_1phase_shift_in_aw=' num2str(VBSBAT_options.q_alpha.org_1phase_shift_in_aw), ...
+%     ',{optional offset in a_w_sep}']};
 k=k+1;
 options_2write(k,1)={['VBSBAT_options.q_alpha.min_spread_in_aw=' num2str(VBSBAT_options.q_alpha.min_spread_in_aw), ...
     ',{min delta in 1-a_w_sep}']};
-k=k+1;
-options_2write(k,1)={['VBSBAT_options.q_alpha.scale_transfer_range=' num2str(VBSBAT_options.q_alpha.scale_transfer_range), ...
-    ',{scale delta(a_w_sep) by this multiple}']};
+% k=k+1;
+% options_2write(k,1)={['VBSBAT_options.q_alpha.scale_transfer_range=' num2str(VBSBAT_options.q_alpha.scale_transfer_range), ...
+%     ',{scale delta(a_w_sep) by this multiple}']};
 k=k+1;
 options_2write(k,1)={['VBSBAT_options.q_alpha.q_alpha_bounds=' num2str(VBSBAT_options.q_alpha.q_alpha_bounds(1,1)), ',' num2str(VBSBAT_options.q_alpha.q_alpha_bounds_mean(1,2)), ...
     ',{bounds of q_alpha, above round to 1 and below round to 0}']};
