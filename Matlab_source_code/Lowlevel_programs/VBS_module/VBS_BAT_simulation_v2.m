@@ -38,13 +38,13 @@ mean_prop_mask=O2C_single_phase_cross_point;
 if strcmpi(VBSBAT_options.force_phase.onePhase, 'no') % includes two phase options
     if sum(O2C_single_phase_cross_point)>0 % has a separation activity
         
-        % get RH
-        [RH_cross_point] = biphasic_to_single_phase_RH_master_v4(O2C_values, H2C_values, Molar_mass_raitos, BAT_functional_group,McGlashan_refinement_mode);
+        % get a_w_sep_point
+        [a_w_sep_point] = biphasic_to_single_phase_RH_master_v4(O2C_values, H2C_values, Molar_mass_raitos, BAT_functional_group);
         
         % isolates miscibile
-        RH_cross_point=RH_cross_point.*O2C_single_phase_cross_point;
+        a_w_sep_point=a_w_sep_point.*O2C_single_phase_cross_point;
         
-        [q_alpha_vsRH_values] = q_alpha_transfer_vs_aw_calc_v1(RH_cross_point, aw_series, VBSBAT_options);
+        [q_alpha_vsRH_values] = q_alpha_transfer_vs_aw_calc_v1(a_w_sep_point, aw_series, VBSBAT_options);
         
         % threshold start and end q_alpha values
         max_q_alpha=q_alpha_vsRH_values>VBSBAT_options.q_alpha.q_alpha_bounds(1,1);
@@ -86,7 +86,7 @@ Coa_beta=C_OA_out;
 q_alpha_water=C_OA_out;
 q_alpha_water_out=C_OA_out;
 weight_q_alpha=C_OA_out;
-RH_cross_point_of_meanPM=C_OA_out;
+a_w_sep_point_of_meanPM=C_OA_out;
 
 ycalc_org_beta_temp=C_OA_out;
 mass_fraction_water_beta_temp=C_OA_out;
@@ -154,29 +154,30 @@ for s_i=1:S_full(1,1) % iterates through aw values
     activity_coefficient_AB=[ycalc_org_alpha,ycalc_org_beta];
     mass_fraction_water_AB=[mass_fraction_water_alpha,mass_fraction_water_beta];
     
-    % guess options for VBS start point
+    % guess options for VBS start point 
+    % not used if the NN is used for the inital guess (in VBSBAT_options)
+    % but we still need to pass a value to it.  
     if s_i>1
-        
         guess_C_OAalpha_ugPm3=Coa_alpha(s_i-1,:);
         guess_C_OAbeta_ugPm3=Coa_beta(s_i-1,:);
         guess_partition_coefficents=partition_coefficents_out(s_i-1,:)';
-        guess_q_alpha_water=q_alpha_water_out(s_i-1,:);
-        
+%         guess_q_alpha_water=q_alpha_water_out(s_i-1,:);
     else
         guess_C_OAalpha_ugPm3=.1;
         guess_C_OAbeta_ugPm3=.1;
         guess_partition_coefficents=partition_coefficents_out(1,:)';
-        guess_q_alpha_water=q_alpha_water_out(1,:);
+%         guess_q_alpha_water=q_alpha_water_out(1,:);
     end
     
     toc_VBSBAT_start=toc;
     if sum(q_alpha_vsRH_values(s_i,:))==0      % single phase calculation BETA
         
         %         %beta phase calc only
-        [partition_coefficents_temp, Coa_j_AB, Caq_j_AB, Cstar_j, Coa_AB, Caq_AB, C_OA_PM, q_alpha_water, fit_exit_flag, error_out]=VBS_equilibration_withLLEpartition_KGv2(...
+        [partition_coefficents_temp, Coa_j_AB, Caq_j_AB, Cstar_j, Coa_AB, Caq_AB,...
+            C_OA_PM, q_alpha_water, fit_exit_flag, error_out]=VBS_equilibration_withLLEpartition_KGv2(...
             guess_C_OAalpha_ugPm3,guess_C_OAbeta_ugPm3,guess_partition_coefficents,...
             C_OM_ugPm3, Csat_j_value, activity_coefficient_AB, q_alpha_vsRH_values(s_i,:)', mass_fraction_water_AB, ...
-            Molecular_weight,aw,O2C_values, BAT_functional_group,...
+            Molecular_weight, aw, O2C_values, BAT_functional_group,...
             VBSBAT_options);
         
         partition_coefficents=partition_coefficents_temp; % outputs
@@ -186,7 +187,8 @@ for s_i=1:S_full(1,1) % iterates through aw values
     elseif sum(q_alpha_vsRH_values(s_i,:))==S(1,1)     % single phase calculation ALPHA
         
         % alpha phase calc only
-        [partition_coefficents_temp, Coa_j_AB, Caq_j_AB,Cstar_j, Coa_AB, Caq_AB, C_OA_PM, q_alpha_water, fit_exit_flag, error_out]=VBS_equilibration_withLLEpartition_KGv2(...
+        [partition_coefficents_temp, Coa_j_AB, Caq_j_AB,Cstar_j, Coa_AB, Caq_AB,...
+            C_OA_PM, q_alpha_water, fit_exit_flag, error_out]=VBS_equilibration_withLLEpartition_KGv2(...
             guess_C_OAalpha_ugPm3,guess_C_OAbeta_ugPm3,guess_partition_coefficents,...
             C_OM_ugPm3, Csat_j_value, activity_coefficient_AB, q_alpha_vsRH_values(s_i,:)', mass_fraction_water_AB, ...
             Molecular_weight,aw,O2C_values, BAT_functional_group,...
@@ -198,10 +200,13 @@ for s_i=1:S_full(1,1) % iterates through aw values
         
     else % q alpha has some value
         
-        % beta phase calc first which is used for average a_alpha calc
-        %select larger for more stable guess
-        guess_C_OA_ugPm3=max(guess_C_OAbeta_ugPm3,guess_C_OAalpha_ugPm3);
-        [partition_coefficents_temp, Coa_j_AB_temp, Caq_j_AB_temp, Cstar_j_temp, Coa_AB_temp, Caq_AB_temp, C_OA_temp, q_alpha_water_temp, fit_exit_flag, error_out]=VBS_equilibration_withLLEpartition_KGv2(...
+        % beta phase calc first which is used for average q_alpha calc and
+        % used as a check to see if the two-phase simulation is realisitic 
+        
+        guess_C_OA_ugPm3=max(guess_C_OAbeta_ugPm3,guess_C_OAalpha_ugPm3); % not used if the NN is used for the inital guess (in VBSBAT_options)
+        
+        [partition_coefficents_temp, Coa_j_AB_temp, Caq_j_AB_temp, Cstar_j_temp, Coa_AB_temp,...
+            Caq_AB_temp, C_OA_temp, q_alpha_water_temp, fit_exit_flag, error_out]=VBS_equilibration_withLLEpartition_KGv2(...
             guess_C_OA_ugPm3,guess_C_OA_ugPm3,guess_partition_coefficents,...
             C_OM_ugPm3, Csat_j_value, activity_coefficient_AB, q_alpha_vsRH_values(s_i,:)'.*0, mass_fraction_water_AB, ...
             Molecular_weight,aw,O2C_values, BAT_functional_group,...
@@ -217,18 +222,19 @@ for s_i=1:S_full(1,1) % iterates through aw values
         O2C_temp=sum(mass_fraction_inPM.* O2C_values);
         H2C_temp=sum(mass_fraction_inPM.* H2C_values);
         
-        [RH_cross_point_of_meanPM(s_i,1)] = biphasic_to_single_phase_RH_master_v4(O2C_temp, H2C_temp, Mratio_temp, VBSBAT_options.mean_BAT_functional_group,McGlashan_refinement_mode);
+        [a_w_sep_point_of_meanPM(s_i,1)] = biphasic_to_single_phase_RH_master_v4(O2C_temp, H2C_temp, Mratio_temp, VBSBAT_options.mean_BAT_functional_group);
         
-        [weight_q_alpha(s_i,1)] = q_alpha_transfer_vs_aw_calc_v1(RH_cross_point_of_meanPM(s_i,1), aw, VBSBAT_options);
+        [weight_q_alpha(s_i,1)] = q_alpha_transfer_vs_aw_calc_v1(a_w_sep_point_of_meanPM(s_i,1), aw, VBSBAT_options);
         
         % threshold q_alpha value for mean
         if weight_q_alpha(s_i,1)>VBSBAT_options.q_alpha.q_alpha_bounds_mean(1,2)
             weight_q_alpha(s_i,1)=1;
         end
         
-        % make sure q_alpha greater than mean min, to proceed with 2 phase
-        % calc.
-        if weight_q_alpha(s_i,1)>VBSBAT_options.q_alpha.q_alpha_bounds_mean(1,1)
+        % make sure q_alpha mean is greater than mean min, to proceed with 2 phase
+        % calc. as this must pass before a 2 phase calc is used with
+        % individual q alphas
+        if weight_q_alpha(s_i,1)>VBSBAT_options.q_alpha.q_alpha_bounds_mean(1,1) 
             
             % select whigh q alpha to use in two phase transition calc
             if strcmpi(VBSBAT_options.q_alphaVBS.method_to_use,'mean_prop')
@@ -253,19 +259,10 @@ for s_i=1:S_full(1,1) % iterates through aw values
             VBSBAT_fit_counter=VBSBAT_fit_counter+1;
             
             
-            
+            % checks if the two phase mass calculation is realistic
             if strcmpi(VBSBAT_options.q_alphaVBS.Option_to_overwrite_two_phase_calculation , 'yes') ...
                     && (C_OA_PM-C_OA_temp)/C_OA_temp <VBSBAT_options.q_alphaVBS.overwrite_threshold_two_phase_fraction_difference
                 
-                %                 % 2 phase calc difference is too low,
-                %                 replace with beta
-                %                 partition_coefficents=partition_coefficents_temp; % outputs
-                %                 Coa_j_AB=Coa_j_AB_temp;
-                %                 Caq_j_AB=Caq_j_AB_temp;
-                %                 Cstar_j=Cstar_j_temp;
-                %                 Coa_AB=Coa_AB_temp;
-                %                 C_OA_PM=C_OA_temp;
-                %                 q_alpha_water=q_alpha_water_temp;
                 
                 % 2 phase calc difference is too low calc
                 % the mean of two phase and beta only
@@ -279,8 +276,8 @@ for s_i=1:S_full(1,1) % iterates through aw values
                 %disp('force_change')
             end
             
-        else % q alpha too small save inital beta calc
-            % 2 phase not needed
+        else 
+            % 2 phase calculation not needed
             partition_coefficents=partition_coefficents_temp; % outputs
             Coa_j_AB=Coa_j_AB_temp;
             Caq_j_AB=Caq_j_AB_temp;

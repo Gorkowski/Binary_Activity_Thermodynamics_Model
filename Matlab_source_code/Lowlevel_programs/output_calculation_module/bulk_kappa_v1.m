@@ -10,6 +10,7 @@ function [kappaHGF,kappa, growth] = bulk_kappa_v1(O2C_values, H2C_values,...
 %Petters, M. D. and Kreidenweis, S. M.: A single parameter representation
 %of hygroscopic growth and cloud condensation nucleus activity – Part 2:
 %Including solubility, Atmos. Chem. Phys., 7(8), 1961–1971, doi:10.5194/acp-7-1961-2007, 2007.
+
 [min_aw_val,min_aw_i]=min(aw_series);
 % zero aw limit
 trip_fix_0=false;
