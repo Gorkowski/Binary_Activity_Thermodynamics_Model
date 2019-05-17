@@ -44,17 +44,21 @@ if strcmpi(VBSBAT_options.force_phase.onePhase, 'no') % includes two phase optio
         % isolates miscibile
         a_w_sep_point=a_w_sep_point.*O2C_single_phase_cross_point;
         
-        [q_alpha_vsRH_values] = q_alpha_transfer_vs_aw_calc_v1(a_w_sep_point, aw_series, VBSBAT_options);
+        % create a_w_sep_point matrix to match aw_series length and
+        % chemical species width
+        a_w_sep_matrix=repmat(a_w_sep_point',S_full(1,1),1);
+        aw_series_matrix=repmat(aw_series,1,S(1,1));
+
+        %calculate q_alpha as a function of a_w
+        [q_alpha_vsRH_values] = q_alpha_transfer_vs_aw_calc_v1(a_w_sep_matrix, aw_series_matrix, VBSBAT_options);
         
         % threshold start and end q_alpha values
         max_q_alpha=q_alpha_vsRH_values>VBSBAT_options.q_alpha.q_alpha_bounds(1,1);
         min_q_alpha=q_alpha_vsRH_values<VBSBAT_options.q_alpha.q_alpha_bounds(1,2);
         
+        % applies q_alpha limmits 
         q_alpha_vsRH_values=max_q_alpha.*q_alpha_vsRH_values;
         q_alpha_vsRH_values=min_q_alpha.*q_alpha_vsRH_values+not(min_q_alpha);
-        
-        % set miscible species to 1
-        q_alpha_vsRH_values=q_alpha_vsRH_values.*repmat(O2C_single_phase_cross_point',S_full(1,1),1)+not(repmat(O2C_single_phase_cross_point',S_full(1,1),1));
         
     else
         q_alpha_vsRH_values=ones(S_full(1,1),S(1,1)); % fully miscibile

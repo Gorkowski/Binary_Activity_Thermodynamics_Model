@@ -11,10 +11,8 @@ if not(exist('run_mode'))
 end
 
 % q_alpha options
-VBSBAT_options.q_alpha.org_1phase_shift_in_aw=0.0000;
 VBSBAT_options.q_alpha.min_spread_in_aw=10^-6;
 VBSBAT_options.q_alpha.q_alpha_at_1phase_aw=0.99;%1-10^-6;
-VBSBAT_options.q_alpha.scale_transfer_range=1; % modify the width of the q_alpha transfer funciton 
 
 VBSBAT_options.q_alpha.q_alpha_bounds=[10^-6,1];
 VBSBAT_options.q_alpha.q_alpha_bounds_mean=[10^-6,1];
