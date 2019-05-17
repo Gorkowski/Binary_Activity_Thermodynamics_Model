@@ -68,11 +68,6 @@ for sp_i=1:max_dim
         MW_old=(18.016./molarmass_ratio(sp_i));
         MW_new=MW_old./(1+fit_shift(4,1).*exp(-(MW_old)*fit_shift(2,1)));
         
-%         MW_limit=80; % smoother with out limit
-%         if sum(MW_new<MW_limit) % unconstrained at MW less than 80
-%             mask=MW_new<MW_limit;
-%             MW_new=MW_new.*not(mask)+MW_new.*MW_limit;
-%         end
         molarmass_ratio_eqv(sp_i,1)=18.016./MW_new;
     else
         O2C_eqv(sp_i,1)=O2C(sp_i);

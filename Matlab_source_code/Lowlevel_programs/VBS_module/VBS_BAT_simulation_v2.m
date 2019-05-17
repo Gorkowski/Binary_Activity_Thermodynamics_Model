@@ -114,9 +114,9 @@ for s_i=1:S_full(1,1) % iterates through aw values
     
     aw_vec=ones(S(1,1),1).*aw; % duplicates aw to match organic numb
     
-    %%***Step 2*****  nn version gets mole fraction at aw
+    %%***Step 2*****  
+    %nn version gets mole fraction at aw
     [mole_frac_org_alpha, mole_frac_org_beta] = inverted_NNMcGlashan_v8(O2C_values, H2C_values, Molar_mass_ratios, aw_vec, BAT_functional_group);
-    
     
     mass_fraction_water_alpha=Molecular_weight.*0;
     ycalc_org_alpha=mass_fraction_water_alpha;
@@ -131,7 +131,6 @@ for s_i=1:S_full(1,1) % iterates through aw values
         else
             BAT_refinement_mode_temp=BAT_refinement_mode;
         end
-        
         
         toc_BAT_start=toc;
         if strcmpi(BAT_refinement_mode_temp,'interpolate')

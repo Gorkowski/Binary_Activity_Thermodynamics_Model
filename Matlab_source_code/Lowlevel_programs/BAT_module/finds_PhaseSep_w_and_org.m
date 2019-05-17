@@ -6,7 +6,7 @@ function [phase_sep_check,lower_a_w_sep_index,upper_a_w_sep_index, matching_Uppe
 %% 
 
 
-% check for phase seperation in each activity curve
+% check for phase separation in each activity curve
 [~,phaseSep_via_activity_curvature_w,index_phase_sep_starts_w,index_phase_sep_end_w]=...
     finds_PhaseSep_and_activity_curve_dips_v2(activity_water);
 [~,phaseSep_via_activity_curvature_org,index_phase_sep_starts_org,index_phase_sep_end_org]=...
@@ -30,7 +30,7 @@ if phaseSep_via_activity_curvature_w==1
         end
         matching_Upper_a_w_sep_index=match_index_prime(1,1)-1;
     else
-        lower_a_w_sep_index=max(indexes);
+        lower_a_w_sep_index=max(indexes); % decreasing a_w with index
         upper_a_w_sep_index=min(indexes);
         % find matching a_w point for upper_a_w_sep_index, as this is not
         % necessarily the same as lower_a_w_sep_index, and is likely on a metastable
@@ -41,16 +41,12 @@ if phaseSep_via_activity_curvature_w==1
         match_index_prime=find(activity_water_beta<=match_a_w);
         matching_Upper_a_w_sep_index=mid_sep_index+match_index_prime(1,1)-1;
     end
-    
 
-
-    
 else
     lower_a_w_sep_index=1; % no phase sep
     upper_a_w_sep_index=2;
     matching_Upper_a_w_sep_index=2;
     phase_sep_check=0;% no phase sep
 end
-
 
 end

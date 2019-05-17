@@ -24,7 +24,7 @@
 % %activity_data=activity_water;
 
 
-%Program
+%% Program
 
 
 activity_diff=diff(activity_data);
@@ -51,12 +51,9 @@ if sign(min_value)==sign(max_value)
         
 elseif sign(min_value)~=sign(max_value)
     phaseSep_via_activity_curvature=1;
-    
-    
-    
+
     % get mole fraction value at start or phasesep and end of phasesep
-    
-    
+
     % curve change
     activity_calc1_diff_sign_change=sign([activity_diff(1,1);activity_diff])~=sign(activity_diff(1,1));
     
@@ -116,11 +113,6 @@ else
         
 
 end
- %disp(['start ' num2str(index_phase_sep_starts) ' end ' num2str(index_phase_sep_end)])
-
-
-
-
 
 if sum(activity_data>1)
     phaseSep_via_activity=1;

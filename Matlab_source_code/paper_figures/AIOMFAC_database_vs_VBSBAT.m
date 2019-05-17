@@ -4,10 +4,9 @@
 %%
 % loads AIOMFAC data and generates comparison plots. Using direct calls to
 % VBSBAT and not using input file format
-% outputs 
 
 clear
-BAT_refinement_mode='interpolate'; % 'perfect water activity' 'none' 'interpolate'
+BAT_refinement_mode='interpolate'; % 'none' 'interpolate'
 
 % individual species simulation VBSBAT 
 VBSBAT_options=default_VBSBAT_options('default');%'robust' 'default'
@@ -26,7 +25,7 @@ aw_series=data_systems(1).basic.aw_dataset; % get water activity points
 [~,min_aw_i]=min(aw_series);
 Saw=size(aw_series);
 
-aw_series_VBSBAT=[0.9999999; 0.999999; 0.99995; aw_series];
+aw_series_VBSBAT=[0.9999999; 0.999999; 0.99995; aw_series]; % a couple extra a_w points for VBSBAT to see the uptake in kappa values at high RH
 added_aw=4;
 
 %% alpha pinene SOA system

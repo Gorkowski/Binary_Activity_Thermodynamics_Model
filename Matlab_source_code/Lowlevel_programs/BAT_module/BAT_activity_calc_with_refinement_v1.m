@@ -10,7 +10,7 @@ if not(exist('N2C_values_denistyOnly'))
     N2C_values_denistyOnly=molarmass_ratio.*0;
 end
 
-%interpolate number of steps steps the resoluiton interpolate uses
+%interpolate number of steps steps the resolution interpolate uses, this could be improved
 interpolate_step_numb=500; 
 
 if strcmpi(refinement_mode,'none')
