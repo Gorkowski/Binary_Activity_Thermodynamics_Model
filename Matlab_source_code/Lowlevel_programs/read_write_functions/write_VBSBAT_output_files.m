@@ -12,7 +12,7 @@ function write_VBSBAT_output_files(name,sim_details)
 % sim_details=details_aP;
 
 [options_2write]=write_VBSBAT_options_to_cell(sim_details.inputs.VBSBAT_options);
-% sim_details.inputs.McGlashan_refinement_mode
+% sim_details.inputs.BAT_refinement_mode
 
 [data_header, data_matrix, input_header, input_matrix, input_functional_groups, input_aw]=gen_simple_output_data_from_VBSBAT_sim(sim_details);
 
@@ -23,7 +23,7 @@ input_file = fopen(input_file_name,'w');
 % model name 
 % 
 fprintf(input_file,'%s\n', ['run name=' name]);
-fprintf(input_file,'%s\n', ['McGlashan_refinement_mode=' sim_details.inputs.McGlashan_refinement_mode]);
+fprintf(input_file,'%s\n', ['BAT_refinement_mode=' sim_details.inputs.BAT_refinement_mode]);
 
 s_options=size(options_2write);
 for i=1:s_options(1,1)

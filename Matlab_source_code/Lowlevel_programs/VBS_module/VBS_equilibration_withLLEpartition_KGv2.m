@@ -1,6 +1,6 @@
-function [partition_coefficents_AB, Coa_j_AB, Caq_j_AB, Cstar_j, Coa_AB,...
+function [partition_coefficients_AB, Coa_j_AB, Caq_j_AB, Cstar_j, Coa_AB,...
     Caq_AB, Coa, q_alpha_water, fit_exit_flag, error_out]=VBS_equilibration_withLLEpartition_KGv2(...
-    guess_C_OAalpha_ugPm3,guess_C_OAbeta_ugPm3,guess_partition_coefficents, ...
+    guess_C_OAalpha_ugPm3,guess_C_OAbeta_ugPm3,guess_partition_coefficients, ...
     C_OM_ugPm3, Cstar_dry, activity_coefficient_AB, q_alpha_molefrac_phase_split_org, ...
     mass_fraction_water_AB, molecular_weight, a_water, O2C_values, BAT_functional_group, ...
     VBSBAT_options)
@@ -11,7 +11,7 @@ function [partition_coefficents_AB, Coa_j_AB, Caq_j_AB, Cstar_j, Coa_AB,...
 % Solves for VSB partition coefficients Ej
 
 %% get Ej guess
-Molar_mass_raitos=18.015./molecular_weight;
+Molar_mass_ratios=18.015./molecular_weight;
 if guess_C_OAbeta_ugPm3>0
     guess_C_oaaqbeta_ugPm3=guess_C_OAbeta_ugPm3./(1-mean(mass_fraction_water_AB(:,2)));
 elseif guess_C_OAalpha_ugPm3>0
@@ -20,17 +20,17 @@ else
     guess_C_oaaqbeta_ugPm3=1./(1-mean(mass_fraction_water_AB(:,2)));
 end
 
-if sum(guess_partition_coefficents)==0 || strcmpi(VBSBAT_options.optimization.independent_aw,'yes')
+if sum(guess_partition_coefficients)==0 || strcmpi(VBSBAT_options.optimization.independent_aw,'yes')
     
     if strcmpi(VBSBAT_options.VBSBAT_NN_options.use_NN_for_VBS_initial_guess,'no') % guess for Ej using approximation
         
-        Cstar_j_guess=Cstar_dry.*activity_coefficient_AB(:,2)./(1+mass_fraction_water_AB(:,2).*(1./Molar_mass_raitos-1)); %not right but fine for guess
+        Cstar_j_guess=Cstar_dry.*activity_coefficient_AB(:,2)./(1+mass_fraction_water_AB(:,2).*(1./Molar_mass_ratios-1)); %not right but fine for guess
         Ej_guess=(1+Cstar_j_guess./guess_C_oaaqbeta_ugPm3).^-1;
         
     elseif strcmpi(VBSBAT_options.VBSBAT_NN_options.use_NN_for_VBS_initial_guess,'yes') % guess for Ej using neural network
         
         % network trained on hydroxyl so need to convert to OH first
-        [O2C_temp,Mratio_temp] = convert_chemical_structure_to_OH_eqv_v3(O2C_values,Molar_mass_raitos, BAT_functional_group );
+        [O2C_temp,Mratio_temp] = convert_chemical_structure_to_OH_eqv_v3(O2C_values,Molar_mass_ratios, BAT_functional_group );
         
         [Ej_guess] =  VBSBAT_nerual_network_estimate_v1(...
             Cstar_dry, C_OM_ugPm3, O2C_temp, 18.015./Mratio_temp, mass_fraction_water_AB(:,2)...
@@ -39,7 +39,7 @@ if sum(guess_partition_coefficents)==0 || strcmpi(VBSBAT_options.optimization.in
     
     
 elseif strcmpi(VBSBAT_options.optimization.independent_aw,'no') % use previous Ej_guess results
-    Ej_guess=guess_partition_coefficents;
+    Ej_guess=guess_partition_coefficients;
 else
     error(' Select VBSBAT_options.optimization.independent_aw option either yes or no')
 end
@@ -91,7 +91,7 @@ else % guess has a lower error than guess_refinement_threshold
 end
 
 % runs a final calcuation for output
-[partition_coefficents_AB, Coa_j_AB, Caq_j_AB, Cstar_j,  Coa_AB, Caq_AB, Coa, ...
+[partition_coefficients_AB, Coa_j_AB, Caq_j_AB, Cstar_j,  Coa_AB, Caq_AB, Coa, ...
     q_alpha_water, error_out]= VBS_equilibration_withLLEpartition_objFun_KGv3(fit_CoaEj, ...
     C_OM_ugPm3, Cstar_dry, activity_coefficient_AB, q_alpha_molefrac_phase_split_org, mass_fraction_water_AB, molecular_weight);
 
@@ -103,7 +103,7 @@ function [error_out]= nested_opt_cost_sub1(guess_CoaEj, ...
     C_OM_ugPm3, Cstar_dry, activity_coefficient_AB, q_alpha_molefrac_phase_split_org, mass_fraction_water_AB, molecular_weight)
 
 
-[partition_coefficents_AB, Coa_j_AB, Caq_j_AB, Cstar_j, Coa_AB, Caq_AB, Coa, q_alpha_water, error_out]= VBS_equilibration_withLLEpartition_objFun_KGv3(guess_CoaEj, ...
+[partition_coefficients_AB, Coa_j_AB, Caq_j_AB, Cstar_j, Coa_AB, Caq_AB, Coa, q_alpha_water, error_out]= VBS_equilibration_withLLEpartition_objFun_KGv3(guess_CoaEj, ...
     C_OM_ugPm3, Cstar_dry, activity_coefficient_AB, q_alpha_molefrac_phase_split_org, mass_fraction_water_AB, molecular_weight);
 
 end

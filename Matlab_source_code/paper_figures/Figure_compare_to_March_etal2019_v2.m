@@ -6,7 +6,7 @@
 %Marsh, A., Rovelli, G., Miles, R. E. H. and Reid, J. P.: The Complexity of Measuring and Representing the Hygroscopicity of Mixed Component Aerosol, J. Phys. Chem. A, acs.jpca.8b11623, doi:10.1021/acs.jpca.8b11623, 2019.
 %
 clear
- McGlashan_refinement_mode='interpolate'; % 'perfect water activity' 'none' 'interpolate'
+ BAT_refinement_mode='interpolate'; % 'perfect water activity' 'none' 'interpolate'
 
 VBSBAT_options=default_VBSBAT_options('robust');%('robust');
 % VBSBAT_options.BAT_refinement_aw=0;
@@ -46,7 +46,7 @@ Org_Conc_OM=mixture1_total_moles.*mixture1_MolarMass./(sum(mixture1_total_moles.
 [VBSBAT_mix1_C_OA_PM, VBSBAT_mix1_Caq_PM, VBSBAT_mix1_kappaHGF, details_mix1]=VBS_BAT_simulation_v2(...
     Csat_ugPm3, Org_Conc_OM, ...
     mixture1_O2C, mixture1_H2C,  mixture1_MolarMass,...
-    aw_series, mixture1_functional_group, McGlashan_refinement_mode, VBSBAT_options, 'mixture 1', mixture1_N2C);
+    aw_series, mixture1_functional_group, BAT_refinement_mode, VBSBAT_options, 'mixture 1', mixture1_N2C);
 
 disp(['fit per aw ' num2str(details_mix1.fit.mean_time_per_fit) ' sec'])
 
@@ -161,7 +161,7 @@ Org_Conc_OM=mixture2_total_moles.*mixture2_MolarMass./(sum(mixture2_total_moles.
 [VBSBAT_mix2_C_OA_PM, VBSBAT_mix2_Caq_PM, VBSBAT_mix2_kappaHGF, details_mix2]=VBS_BAT_simulation_v2(...
     Csat_ugPm3, Org_Conc_OM, ...
     mixture2_O2C, mixture2_H2C,  mixture2_MolarMass, aw_series,...
-    mixture2_functional_group, McGlashan_refinement_mode, VBSBAT_options,extension_name, mixture2_N2C );
+    mixture2_functional_group, BAT_refinement_mode, VBSBAT_options,extension_name, mixture2_N2C );
 
 % disp(['fit per aw ' num2str(details_mix1.fit.mean_time_per_fit) ' sec'])
 
@@ -265,7 +265,7 @@ Org_Conc_OM=mixture3_total_moles.*mixture3_MolarMass./(sum(mixture3_total_moles.
 [VBSBAT_mix3_C_OA_PM, VBSBAT_mix3_Caq_PM, VBSBAT_mix3_kappaHGF, details_mix3]=VBS_BAT_simulation_v2(...
     Csat_ugPm3, Org_Conc_OM, ...
     mixture3_O2C, mixture3_H2C,  mixture3_MolarMass, aw_series, mixture3_functional_group, ...
-    McGlashan_refinement_mode, VBSBAT_options, extension_name, mixture3_N2C );
+    BAT_refinement_mode, VBSBAT_options, extension_name, mixture3_N2C );
 
 % disp(['fit per aw ' num2str(details_mix1.fit.mean_time_per_fit) ' sec'])
 
@@ -380,7 +380,7 @@ Org_Conc_OM=mixture4_total_moles.*mixture4_MolarMass./(sum(mixture4_total_moles.
 [VBSBAT_mix4_C_OA_PM, VBSBAT_mix4_Caq_PM, VBSBAT_mix4_kappaHGF, details_mix3]=VBS_BAT_simulation_v2(...
     Csat_ugPm3, Org_Conc_OM, ...
     mixture4_O2C, mixture4_H2C,  mixture4_MolarMass, aw_series, mixture4_functional_group, ...
-    McGlashan_refinement_mode, VBSBAT_options, extension_name, mixture4_N2C);
+    BAT_refinement_mode, VBSBAT_options, extension_name, mixture4_N2C);
 
 % disp(['fit per aw ' num2str(details_mix1.fit.mean_time_per_fit) ' sec'])
 
@@ -485,7 +485,7 @@ Org_Conc_OM=mixture5_total_moles.*mixture5_MolarMass./(sum(mixture5_total_moles.
 [VBSBAT_mix5_C_OA_PM, VBSBAT_mix5_Caq_PM, VBSBAT_mix5_kappaHGF, details_mix3]=VBS_BAT_simulation_v2(...
     Csat_ugPm3, Org_Conc_OM, ...
     mixture5_O2C, mixture5_H2C,  mixture5_MolarMass, aw_series, mixture5_functional_group, ...
-    McGlashan_refinement_mode, VBSBAT_options,  extension_name, mixture5_N2C);
+    BAT_refinement_mode, VBSBAT_options,  extension_name, mixture5_N2C);
 
 % disp(['fit per aw ' num2str(details_mix1.fit.mean_time_per_fit) ' sec'])
 
@@ -595,7 +595,7 @@ Org_Conc_OM=mixture6_total_moles.*mixture6_MolarMass./(sum(mixture6_total_moles.
 [VBSBAT_mix6_C_OA_PM, VBSBAT_mix6_Caq_PM, VBSBAT_mix6_kappaHGF, details_mix3]=VBS_BAT_simulation_v2(...
     Csat_ugPm3, Org_Conc_OM, ...
     mixture6_O2C, mixture6_H2C,  mixture6_MolarMass, aw_series, mixture6_functional_group,...
-    McGlashan_refinement_mode, VBSBAT_options, extension_name, mixture6_N2C);
+    BAT_refinement_mode, VBSBAT_options, extension_name, mixture6_N2C);
 
 % disp(['fit per aw ' num2str(details_mix1.fit.mean_time_per_fit) ' sec'])
 
@@ -694,7 +694,7 @@ Org_Conc_OM=mixture7_total_moles.*mixture7_MolarMass./(sum(mixture7_total_moles.
 [VBSBAT_mix7_C_OA_PM, VBSBAT_mix7_Caq_PM, VBSBAT_mix7_kappaHGF, details_mix3]=VBS_BAT_simulation_v2(...
     Csat_ugPm3, Org_Conc_OM, ...
     mixture7_O2C, mixture7_H2C,  mixture7_MolarMass, aw_series, mixture7_functional_group, ...
-    McGlashan_refinement_mode, VBSBAT_options,  extension_name, mixture7_N2C);
+    BAT_refinement_mode, VBSBAT_options,  extension_name, mixture7_N2C);
 
 % disp(['fit per aw ' num2str(details_mix1.fit.mean_time_per_fit) ' sec'])
 

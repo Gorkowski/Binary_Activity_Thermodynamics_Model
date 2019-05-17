@@ -9,20 +9,20 @@ function [ln_func1, ln_func2, ycalc1, ycalc2, activity_calc1, activity_calc2, ma
 % Updated by Kyle Gorkowski [GORKOWFALCON] on 2018-Dec-16 10:38 AM
 % % re-named and cleaned up for BAT v1
 
-% % default O2C low to mid to high transition logistic function coefficents
+% % default O2C low to mid to high transition logistic function coefficients
 % tran_lowO2C_fractionOne_phase=0.219;
 % tran_lowO2C_sigmoid_bend=80;
 % tran_lowO2C_sigmoid_shift=0.0472066;
 % tran_midO2C_sigmoid_bend=75;
 % tran_midO2C_sigmoid_shift=0.00094;
-% default v2 O2C low to mid to high transition logistic function coefficents
+% default v2 O2C low to mid to high transition logistic function coefficients
 tran_lowO2C_fractionOne_phase=[0.189974476118418];
 tran_lowO2C_sigmoid_bend=[79.2606902175984];
 tran_lowO2C_sigmoid_shift=[0.0604293454322489];
 tran_midO2C_sigmoid_bend=[75.0159268221068];
 tran_midO2C_sigmoid_shift=[0.000947111285750515];
 % % default v2 O2C low to mid to high transition logistic function
-% coefficents 3-11-2019
+% coefficients 3-11-2019
 % tran_lowO2C_fractionOne_phase=[0.315947592234889];
 % tran_lowO2C_sigmoid_bend=[79.982357891392310];
 % tran_lowO2C_sigmoid_shift=[0.033217567954200];
@@ -36,7 +36,7 @@ end
 
 if isempty(special_options)
     
-elseif strcmpi(special_options.fit_option,'lowO2C_bound_fit' ) % for transfer function fitting of logistic function coefficents
+elseif strcmpi(special_options.fit_option,'lowO2C_bound_fit' ) % for transfer function fitting of logistic function coefficients
     
     tran_lowO2C_fractionOne_phase=special_options.tran_lowO2C_fractionOne_phase;
     tran_lowO2C_sigmoid_bend=special_options.tran_lowO2C_simoid_bend;

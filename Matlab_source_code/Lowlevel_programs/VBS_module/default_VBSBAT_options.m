@@ -47,7 +47,7 @@ VBSBAT_options.VBSBAT_NN_options.NN_type='individual_properties'; % mean_propert
 
 
 %% BAT
-VBSBAT_options.BAT_refinement_aw=0.9; % due to errors in NN fit
+VBSBAT_options.BAT_refinement_aw=0.90; % due to errors in NN fit
 VBSBAT_options.BAT_refinement_tolerance=10^-6;
 
 %% plots

@@ -7,7 +7,7 @@
 % outputs 
 
 clear
-McGlashan_refinement_mode='interpolate'; % 'perfect water activity' 'none' 'interpolate'
+BAT_refinement_mode='interpolate'; % 'perfect water activity' 'none' 'interpolate'
 
 % individual species simulation VBSBAT 
 VBSBAT_options=default_VBSBAT_options('default');%'robust' 'default'
@@ -55,12 +55,12 @@ sim_name='aPsoa';
 
 % calc effective Csat
 [Csat_approx]=VBS_equilibration_extractCsat_withLLEpartition_KGv2(data_systems(index).Org_mass_ugPm3.Org_Conc_massPM_comp(min_aw_i,:)', data_systems(index).Org_mass_ugPm3.Org_Cstar_comp(min_aw_i,:)', ...
-    aw_series(min_aw_i,1), MolarMass, O2C_values, H2C_values,  BAT_functional_group, McGlashan_refinement_mode);
+    aw_series(min_aw_i,1), MolarMass, O2C_values, H2C_values,  BAT_functional_group, BAT_refinement_mode);
 
 % run VBSBAT simulation
 [VBSBAT_aPsoa_C_OA_PM, VBSBAT_aPsoa_Caq_PM, VBSBAT_aPsoa_kappaHGF, details_aP]=VBS_BAT_simulation_v2(...
     Csat_approx, data_systems(index).Org_mass_ugPm3.Org_Conc_OM(min_aw_i,:)', ...
-    O2C_values, H2C_values,  MolarMass, aw_series_VBSBAT, BAT_functional_group, McGlashan_refinement_mode, VBSBAT_options,sim_name );
+    O2C_values, H2C_values,  MolarMass, aw_series_VBSBAT, BAT_functional_group, BAT_refinement_mode, VBSBAT_options,sim_name );
 disp(['fit per aw ' num2str(details_aP.fit.mean_time_per_fit) ' sec'])
 
 %% alpha pinene SOA system, using mean properties
@@ -74,10 +74,10 @@ sim_name='aPsoa_meanProp';
 
 % calc. new effective Csat
 [Csat_approx]=VBS_equilibration_extractCsat_withLLEpartition_KGv2(data_systems(index).Org_mass_ugPm3.Org_Conc_massPM_comp(min_aw_i,:)', data_systems(index).Org_mass_ugPm3.Org_Cstar_comp(min_aw_i,:)', ...
-    aw_series(min_aw_i,1), MolarMass_dry_mean, O2C_values_dry_mean, H2C_values_dry_mean,  BAT_functional_group, McGlashan_refinement_mode);
+    aw_series(min_aw_i,1), MolarMass_dry_mean, O2C_values_dry_mean, H2C_values_dry_mean,  BAT_functional_group, BAT_refinement_mode);
 % calc. VBSBAT simulation
 [VBSBAT_aPsoa_Mean_C_OA_PM, VBSBAT_aPsoa_Mean_Caq_PM, VBSBAT_aPsoa_Mean_kappaHGF, details_aPsoa_mean]=VBS_BAT_simulation_v2(Csat_approx, data_systems(index).Org_mass_ugPm3.Org_Conc_OM(min_aw_i,:)', ...
-    O2C_values_dry_mean, H2C_values_dry_mean,  MolarMass_dry_mean, aw_series_VBSBAT, BAT_functional_group, McGlashan_refinement_mode, VBSBAT_options_mean, sim_name);
+    O2C_values_dry_mean, H2C_values_dry_mean,  MolarMass_dry_mean, aw_series_VBSBAT, BAT_functional_group, BAT_refinement_mode, VBSBAT_options_mean, sim_name);
 disp(['fit per aw ' num2str(details_aPsoa_mean.fit.mean_time_per_fit) ' sec'])
 
 
@@ -107,11 +107,11 @@ sim_name='IPsoa';
 
 %Calculate effective Csat
 [Csat_approx]=VBS_equilibration_extractCsat_withLLEpartition_KGv2(data_systems(index).Org_mass_ugPm3.Org_Conc_massPM_comp(min_aw_i,:)', data_systems(index).Org_mass_ugPm3.Org_Cstar_comp(min_aw_i,:)', ...
-    aw_series(min_aw_i,1), MolarMass, O2C_values, H2C_values,  BAT_functional_group, McGlashan_refinement_mode);
+    aw_series(min_aw_i,1), MolarMass, O2C_values, H2C_values,  BAT_functional_group, BAT_refinement_mode);
 % VBSBAT simulation
 [VBSBAT_IPsoa_C_OA_PM, VBSBAT_IPsoa_Caq_PM, VBSBAT_IPsoa_kappaHGF, details_Isoa]=VBS_BAT_simulation_v2(Csat_approx,...
     data_systems(index).Org_mass_ugPm3.Org_Conc_OM(min_aw_i,:)', ...
-    O2C_values, H2C_values,  MolarMass, aw_series_VBSBAT, BAT_functional_group, McGlashan_refinement_mode, VBSBAT_options, sim_name);
+    O2C_values, H2C_values,  MolarMass, aw_series_VBSBAT, BAT_functional_group, BAT_refinement_mode, VBSBAT_options, sim_name);
 disp(['fit per aw ' num2str(details_Isoa.fit.mean_time_per_fit) ' sec'])
 
 %% Isoprene SOA system, using average properties in VBSBAT
@@ -124,9 +124,9 @@ BAT_functional_group='hydroperoxideSOA';
 sim_name='IPsoa_meanProp';
 
 [Csat_approx]=VBS_equilibration_extractCsat_withLLEpartition_KGv2(data_systems(index).Org_mass_ugPm3.Org_Conc_massPM_comp(min_aw_i,:)', data_systems(index).Org_mass_ugPm3.Org_Cstar_comp(min_aw_i,:)', ...
-    aw_series(min_aw_i,1), MolarMass_dry_mean, O2C_values_dry_mean, H2C_values_dry_mean,  BAT_functional_group, McGlashan_refinement_mode);
+    aw_series(min_aw_i,1), MolarMass_dry_mean, O2C_values_dry_mean, H2C_values_dry_mean,  BAT_functional_group, BAT_refinement_mode);
 [VBSBAT_IPsoa_Mean_C_OA_PM, VBSBAT_IPsoa_Mean_Caq_PM, VBSBAT_IPsoa_Mean_kappaHGF, details_IPsoa_mean]=VBS_BAT_simulation_v2(Csat_approx, data_systems(index).Org_mass_ugPm3.Org_Conc_OM(min_aw_i,:)', ...
-    O2C_values_dry_mean, H2C_values_dry_mean,  MolarMass_dry_mean, aw_series_VBSBAT, BAT_functional_group, McGlashan_refinement_mode, VBSBAT_options_mean, sim_name);
+    O2C_values_dry_mean, H2C_values_dry_mean,  MolarMass_dry_mean, aw_series_VBSBAT, BAT_functional_group, BAT_refinement_mode, VBSBAT_options_mean, sim_name);
 disp(['fit per aw ' num2str(details_IPsoa_mean.fit.mean_time_per_fit) ' sec'])
 
 % save data outputs

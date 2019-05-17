@@ -54,13 +54,13 @@ for i=1:size(input_file,1)
         system_start=false;
     end
     
-    if run_start && contains(texLine, 'McGlashan_refinement_mode=') % sets refinement mode
+    if run_start && contains(texLine, 'BAT_refinement_mode=') % sets refinement mode
         equal_i=strfind(texLine,'=');
         first_comma=strfind(texLine,',');
         if isempty(first_comma)
             first_comma(1,1)=texLength1;
         end
-        simulation_input(sim_i).McGlashan_refinement_mode=texLine(equal_i+1:first_comma(1,1)-1);
+        simulation_input(sim_i).BAT_refinement_mode=texLine(equal_i+1:first_comma(1,1)-1);
     end
     
     if run_start && contains(texLine, 'VBSBAT_options') % put in options

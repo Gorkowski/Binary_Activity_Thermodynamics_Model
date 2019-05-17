@@ -1,4 +1,4 @@
-  function [partition_coefficents, Coa_j_AB, Caq_j_AB, Cstar_j, Coa_AB, Caq_AB, Coa, q_alpha_water, error_out]= VBS_equilibration_withLLEpartition_objFun_KGv3(...
+  function [partition_coefficients, Coa_j_AB, Caq_j_AB, Cstar_j, Coa_AB, Caq_AB, Coa, q_alpha_water, error_out]= VBS_equilibration_withLLEpartition_objFun_KGv3(...
       guess_Ej, C_OM_ugPm3, Cstar_dry, activity_coefficient_AB, q_alpha_molefrac_phase_split_org, mass_fraction_water_AB, molecular_weight)
 % % %%
 % Created by Kyle Gorkowski [LAPTOP-A4QKFAC8] on 2018-May-22  2:41 PM
@@ -111,7 +111,7 @@ q_alpha_water_new=Caq_alpha_new./(Caq_alpha_new+Caq_beta_new);
 error_out=sum((guess_Ej-Ej_new).^2+(Coa_guess_viaEj-Coa_new_viaEj).^2);
 
 % collect the outputs
-partition_coefficents=[Ej_new];
+partition_coefficients=[Ej_new];
 q_alpha_water=q_alpha_water_new;
 Coa_j_AB=[Coa_j_alpha_new,Coa_j_beta_new];
 Caq_j_AB=[Caq_j_alpha_new,Caq_j_beta_new];

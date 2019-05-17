@@ -205,7 +205,7 @@ mole_fraction_org_alpha=replace_data_A_to_B_KGv1(mole_fraction_org_alpha,0,NaN);
 
 % 
 % 
-% plot_name=['activity coefficents vs O2C'];
+% plot_name=['activity coefficients vs O2C'];
 % paper_postion=[.5, .5, 11, 6.5];
 % 
 % figure1 = figure('Units', 'inches', 'PaperPosition', paper_postion, 'Position', [1, 1, 11.5, 7],'Color',[1 1 1]); %'Color',[0.9999 0.9999 0.9999]

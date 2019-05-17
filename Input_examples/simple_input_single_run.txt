@@ -1,5 +1,5 @@
 run name=aPsoa_t3
-McGlashan_refinement_mode=interpolate
+BAT_refinement_mode=interpolate
 VBSBAT_options.run_mode_used=robust
 VBSBAT_options.plot_PM=yes
 

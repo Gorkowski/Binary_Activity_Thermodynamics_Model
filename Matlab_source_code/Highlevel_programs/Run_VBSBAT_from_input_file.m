@@ -38,7 +38,7 @@ for i=1:size(simulation_input,2)
             % estimates effective Csat value at dry conditions
             [Csat_approx]=VBS_equilibration_extractCsat_withLLEpartition_KGv2(simulation_input(i).system.optional_Cliquid_ugPm3, simulation_input(i).system.optional_Cstar_ugPm3, ...
                 aw_to_convert_at, simulation_input(i).system.Molecular_weight, simulation_input(i).system.O2C_values, simulation_input(i).system.H2C_values,...
-                simulation_input(i).system.BAT_functional_group, simulation_input(i).McGlashan_refinement_mode);
+                simulation_input(i).system.BAT_functional_group, simulation_input(i).BAT_refinement_mode);
         else
             error('needs input of eff. Csat_j (ug/m3) or Cstar (ug/m3) and C^liquid (ug/m3), [if you want only the condensed phase set Csat_j to small value i.e. 10^-10]')
         end
@@ -51,7 +51,7 @@ for i=1:size(simulation_input,2)
     [C_OA_PM, Caq_PM, kappaHGF, details]=VBS_BAT_simulation_v2(...
     Csat_approx, simulation_input(i).system.C_OM_ugPm3, ...
     simulation_input(i).system.O2C_values, simulation_input(i).system.H2C_values, simulation_input(i).system.Molecular_weight, ...
-    simulation_input(i).water_activity, simulation_input(i).system.BAT_functional_group, simulation_input(i).McGlashan_refinement_mode, simulation_input(i).VBSBAT_options,simulation_input(i).run_name );
+    simulation_input(i).water_activity, simulation_input(i).system.BAT_functional_group, simulation_input(i).BAT_refinement_mode, simulation_input(i).VBSBAT_options,simulation_input(i).run_name );
     
     % save out simulation as matlab file
     simulation_input_settings=simulation_input(i);
