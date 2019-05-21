@@ -22,6 +22,5 @@ You can also install the runtime engine independently from [MathWorks]( https://
 
 Then run the installed program, and a file dialog box will appear. Then select one of the example input files, e.g., [simple_input_single_run.txt](https://github.com/Gorkowski/Binary_Activity_Thermodynamics_Model/blob/master/Input_examples/simple_input_single_run.txt).
 
-## Data and Generate Figures From Paper
-The figures presented in Gorkowski et al. (2019) can be reproduced using the source code in [paper_figures](https://github.com/Gorkowski/Binary_Activity_Thermodynamics_Model/tree/master/Matlab_source_code/paper_figures). The data shown in the paper figures is compiled in 
-<!-- ## Data Repository TBD-->
+## Data and Figures From Paper
+The figures presented in Gorkowski et al. (2019) can be reproduced using the source code in [paper_figures](https://github.com/Gorkowski/Binary_Activity_Thermodynamics_Model/tree/master/Matlab_source_code/paper_figures). The data shown in the paper and the fit parameters are compiled in the [Excel workbook file](https://github.com/Gorkowski/Binary_Activity_Thermodynamics_Model/tree/master/Matlab_source_code/paper_figures/Figure_data).
