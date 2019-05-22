@@ -15,8 +15,8 @@ The source code is in [Matlab_source_code](https://github.com/Gorkowski/Binary_A
 In addition to the source code, a standalone executable file has been compiled and can run the model if you have no MATLAB license.
 
 ## Standalone Executable Steps
-The installation file is [BAT_installer_v1_web.exe](https://github.com/Gorkowski/Binary_Activity_Thermodynamics_Model/tree/master/Matlab_runtime/BAT_Model/for_redistribution), which needs the freely available MATLAB Runtime R2018b engine. 
-The installation file will download the respective file for your OS. 
+The Windows installation file is [BAT_installer_v1_web.exe](https://github.com/Gorkowski/Binary_Activity_Thermodynamics_Model/tree/master/Matlab_runtime/BAT_Model/for_redistribution), which needs the freely available MATLAB Runtime R2018b engine. 
+The installation file will download the respective runtime engine. 
 You can also install the runtime engine independently from [MathWorks]( https://www.mathworks.com/products/compiler/matlab-runtime.html).
 
 Then run the installed program, and a file dialog box will appear. Then select one of the example input files, e.g., [simple_input_single_run.txt](https://github.com/Gorkowski/Binary_Activity_Thermodynamics_Model/blob/master/Input_examples/simple_input_single_run.txt).

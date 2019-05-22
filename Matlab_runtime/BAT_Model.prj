@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration build-checksum="1988480145" file="C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\runtime_programs\BAT_Model.prj" location="C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\runtime_programs" name="BAT_Model" preferred-package-location="C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\runtime_programs\BAT_Model\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
+  <configuration build-checksum="2576252222" file="C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_runtime\BAT_Model.prj" location="C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_runtime" name="BAT_Model" preferred-package-location="C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_runtime\BAT_Model\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>BAT_simulate</param.appname>
     <param.icon>${PROJECT_ROOT}\BAT_Model_resources\icon.ico</param.icon>
     <param.icons>
@@ -71,62 +71,60 @@
       <param.help.text />
     </unset>
     <fileset.main>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Highlevel_programs\Run_VBSBAT_from_input_file_with_timer.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Highlevel_programs\Run_VBSBAT_from_input_file_with_timer.m</file>
     </fileset.main>
     <fileset.resources>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\BAT_module\BAT_activity_calc_with_refinement_v1.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\matlab_graphing_related\BAT_logo.mat</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\matlab_graphing_related\load_bat_logo.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\matlab_graphing_related\BAT_logo.mat</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\matlab_graphing_related\load_bat_logo.m</file>
     </fileset.resources>
     <fileset.package />
     <fileset.depfun>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\BAT_module\BAT_properties_calculation_v1.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\BAT_module\biphasic_to_single_phase_molfrac_org_NN_v5.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\BAT_module\biphasic_to_single_phase_RH_master_v3.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\BAT_module\biphasic_to_single_phase_RH_master_v4.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\BAT_module\check_BAT_functional_group_inputs_v1.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\BAT_module\finds_PhaseSep_and_activity_curve_dips_v2.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\BAT_module\finds_PhaseSep_w_and_org.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\BAT_module\q_alpha_transfer_vs_aw_calc_v1.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\BAT_module\single_phase_O2C_point_KGv3.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\matlab_graphing_related\plot_VBSBAT_simple_graph.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\NN_module\invert_NN_85to90_transfer_weights.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\NN_module\inverted_NNMcGlashan_biphasic_aqPhase85to1_KGv4.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\NN_module\inverted_NNMcGlashan_biphasic_aqPhase_KGv4.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\NN_module\inverted_NNMcGlashan_biphasic_orgPhase85to1_KGv4.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\NN_module\inverted_NNMcGlashan_biphasic_orgPhase_KGv4.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\NN_module\inverted_NNMcGlashan_singlephase_only85to1_KGv4.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\NN_module\inverted_NNMcGlashan_singlephase_only_KGv4.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\NN_module\inverted_NNMcGlashan_v8.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\NN_module\NN_VBSBAT_layers20_individProp_v2.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\NN_module\NN_VBSBAT_layers24_meanProp_v1.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\NN_module\NN_VBSBAT_layers28_individProp_v1.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\NN_module\VBSBAT_nerual_network_estimate_v1.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\output_calculation_module\bulk_kappa_v1.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\output_calculation_module\get_default_kappa_CCN_settings.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\read_write_functions\gen_simple_output_data_from_VBSBAT_sim.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\read_write_functions\read_input_file.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\read_write_functions\write_VBSBAT_options_to_cell.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\read_write_functions\write_VBSBAT_output_files.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\tools\convert_chemical_structure_to_OH_eqv_v3.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\tools\exp_wlimiter.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\tools\kappa_critical_calc_for_McGlashan_v3.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\tools\log10_zeropass.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\tools\Org_density_Estimate_KGv1.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\tools\progressbartext.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\tools\Removes_zero_rows.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\tools\replace_data_A_to_B_KGv1.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\tools\round_extremes_v1.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\VBS_module\default_VBSBAT_options.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\VBS_module\VBS_BAT_simulation_v2.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\VBS_module\VBS_equilibration_extractCsat_withLLEpartition_KGv2.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\VBS_module\VBS_equilibration_withLLEpartition_KGv2.m</file>
-      <file>C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\Lowlevel_programs\VBS_module\VBS_equilibration_withLLEpartition_objFun_KGv3.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\BAT_module\BAT_activity_calc_with_refinement_v1.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\BAT_module\BAT_properties_calculation_v1.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\BAT_module\biphasic_to_single_phase_RH_master_v4.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\BAT_module\check_BAT_functional_group_inputs_v1.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\BAT_module\finds_PhaseSep_and_activity_curve_dips_v2.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\BAT_module\finds_PhaseSep_w_and_org.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\BAT_module\q_alpha_transfer_vs_aw_calc_v1.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\BAT_module\single_phase_O2C_point_KGv3.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\matlab_graphing_related\plot_VBSBAT_simple_graph.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\NN_module\invert_NN_85to90_transfer_weights.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\NN_module\inverted_NNMcGlashan_biphasic_aqPhase85to1_KGv4.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\NN_module\inverted_NNMcGlashan_biphasic_aqPhase_KGv4.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\NN_module\inverted_NNMcGlashan_biphasic_orgPhase85to1_KGv4.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\NN_module\inverted_NNMcGlashan_biphasic_orgPhase_KGv4.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\NN_module\inverted_NNMcGlashan_singlephase_only85to1_KGv4.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\NN_module\inverted_NNMcGlashan_singlephase_only_KGv4.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\NN_module\inverted_NNMcGlashan_v8.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\NN_module\NN_VBSBAT_layers20_individProp_v2.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\NN_module\NN_VBSBAT_layers24_meanProp_v1.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\NN_module\NN_VBSBAT_layers28_individProp_v1.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\NN_module\VBSBAT_nerual_network_estimate_v1.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\output_calculation_module\bulk_kappa_v1.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\output_calculation_module\get_default_kappa_CCN_settings.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\output_calculation_module\kappa_critical_calc_for_McGlashan_v3.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\read_write_functions\gen_simple_output_data_from_VBSBAT_sim.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\read_write_functions\read_input_file.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\read_write_functions\write_VBSBAT_options_to_cell.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\read_write_functions\write_VBSBAT_output_files.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\tools\convert_chemical_structure_to_OH_eqv_v3.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\tools\exp_wlimiter.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\tools\ln_zeropass.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\tools\log10_zeropass.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\tools\Org_density_Estimate_KGv1.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\tools\progressbartext.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\tools\replace_data_A_to_B_KGv1.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\tools\round_extremes_v1.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\VBS_module\default_VBSBAT_options.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\VBS_module\VBS_BAT_simulation_v2.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\VBS_module\VBS_equilibration_extractCsat_withLLEpartition_KGv2.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\VBS_module\VBS_equilibration_withLLEpartition_KGv2.m</file>
+      <file>C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\VBS_module\VBS_equilibration_withLLEpartition_objFun_KGv3.m</file>
     </fileset.depfun>
     <build-deliverables>
-      <file location="${PROJECT_ROOT}\BAT_Model\for_testing" name="BAT_simulate.exe" optional="false">C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\runtime_programs\BAT_Model\for_testing\BAT_simulate.exe</file>
-      <file location="${PROJECT_ROOT}\BAT_Model\for_testing" name="readme.txt" optional="true">C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\runtime_programs\BAT_Model\for_testing\readme.txt</file>
-      <file location="${PROJECT_ROOT}\BAT_Model\for_testing" name="splash.png" optional="false">C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\runtime_programs\BAT_Model\for_testing\splash.png</file>
+      <file location="${PROJECT_ROOT}\BAT_Model\for_testing" name="readme.txt" optional="true">C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_runtime\BAT_Model\for_testing\readme.txt</file>
+      <file location="${PROJECT_ROOT}\BAT_Model\for_testing" name="BAT_simulate.exe" optional="false">C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_runtime\BAT_Model\for_testing\BAT_simulate.exe</file>
+      <file location="${PROJECT_ROOT}\BAT_Model\for_testing" name="splash.png" optional="false">C:\Users\kkgor\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_runtime\BAT_Model\for_testing\splash.png</file>
     </build-deliverables>
     <workflow />
     <matlab>
