@@ -1,5 +1,5 @@
 function [ycal_waterL, ycalc_orgL, activity_waterL, activity_orgL,ycal_waterU, ycalc_orgU, activity_waterU, activity_orgU,mole_frac_fit_lowRH, mole_frac_fit_upperRH ]=...
-    mcglashan_activity_calc_SRH_edges_KGv8(mole_frac, O2C_values, H2C_values, molarmass_ratio, McGlashan_mode, refinement_mode, fit_tolerance);
+    mcglashan_activity_calc_SRH_edges_KGv8(mole_frac, O2C_values, H2C_values, molarmass_ratio, BAT_functional_group, refinement_mode, fit_tolerance);
 
 %%
 % Created by Kyle Gorkowski [LAPTOP-A4QKFAC8] on 2018-Jul-27  1:48 PM
@@ -8,7 +8,7 @@ function [ycal_waterL, ycalc_orgL, activity_waterL, activity_orgL,ycal_waterU, y
 
 mole_frac_grid=[1:-0.0001:0]';
 [func1, func2, ycal_water, ycalc_org, activity_water, activity_org, mass_fraction1, mass_fraction2,Gibbs_RT, dGibbs_RTdx2]...
-    =BAT_properties_calculation_v1(mole_frac_grid, O2C_values, H2C_values, molarmass_ratio, McGlashan_mode,[]);
+    =BAT_properties_calculation_v1(mole_frac_grid, O2C_values, H2C_values, molarmass_ratio, BAT_functional_group,[]);
 
 if strcmpi(refinement_mode,'a_water SRH')
     activity_to_match=activity_water;
@@ -69,11 +69,11 @@ Lg=length(mole_frac_grid);
         
         if strcmpi(refinement_mode,'a_water SRH')
             problem = createOptimProblem('fmincon','objective',...
-                @(mole_frac)nested_opt_cost_sub2(mole_frac, O2C_values, H2C_values, molarmass_ratio, McGlashan_mode),...
+                @(mole_frac)nested_opt_cost_sub2(mole_frac, O2C_values, H2C_values, molarmass_ratio, BAT_functional_group),...
                 'x0',mole_frac_guess_temp,'lb',mole_frac_bounds(1,1),'ub',mole_frac_bounds(1,2),'options',options);
         elseif strcmpi(refinement_mode,'a_org SRH')
             problem = createOptimProblem('fmincon','objective',...
-                @(mole_frac)nested_opt_cost_sub3(mole_frac, O2C_values, H2C_values, molarmass_ratio, McGlashan_mode),...
+                @(mole_frac)nested_opt_cost_sub3(mole_frac, O2C_values, H2C_values, molarmass_ratio, BAT_functional_group),...
                 'x0',mole_frac_guess_temp,'lb',mole_frac_bounds(1,1),'ub',mole_frac_bounds(1,2),'options',options);
         end
 
@@ -109,10 +109,10 @@ Lg=length(mole_frac_grid);
     
     
     [func1L, func2L, ycal_waterL, ycalc_orgL, activity_waterL, activity_orgL, mass_fraction1L, mass_fraction2L,Gibbs_RTL, dGibbs_RTdx2L]...
-        =BAT_properties_calculation_v1(mole_frac_fit_lowRH, O2C_values, H2C_values, molarmass_ratio, McGlashan_mode,[]);
+        =BAT_properties_calculation_v1(mole_frac_fit_lowRH, O2C_values, H2C_values, molarmass_ratio, BAT_functional_group,[]);
     
     [func1U, func2U, ycal_waterU, ycalc_orgU, activity_waterU, activity_orgU, mass_fraction1U, mass_fraction2U,Gibbs_RTU, dGibbs_RTdx2U]...
-        =BAT_properties_calculation_v1(mole_frac_fit_upperRH, O2C_values, H2C_values, molarmass_ratio, McGlashan_mode,[]);
+        =BAT_properties_calculation_v1(mole_frac_fit_upperRH, O2C_values, H2C_values, molarmass_ratio, BAT_functional_group,[]);
     
     %  mole_frac_fit_upperRH=mole_frac_fit_count;
 
@@ -122,11 +122,11 @@ Lg=length(mole_frac_grid);
 end
 
 
-function [error_out]= nested_opt_cost_sub1(mole_frac, O2C_values, H2C_values, molarmass_ratio, McGlashan_mode, aw_desired_temp);
+function [error_out]= nested_opt_cost_sub1(mole_frac, O2C_values, H2C_values, molarmass_ratio, BAT_functional_group, aw_desired_temp);
 % disp(num2str(mole_frac));
 
 [func1, func2, ycal_water, ycalc_org, activity_water, activity_org, mass_fraction1, mass_fraction2,Gibbs_RT, dGibbs_RTdx2]...
-    =BAT_properties_calculation_v1(mole_frac, O2C_values, H2C_values, molarmass_ratio, McGlashan_mode,[]);
+    =BAT_properties_calculation_v1(mole_frac, O2C_values, H2C_values, molarmass_ratio, BAT_functional_group,[]);
 
 
 error_out=(activity_water-aw_desired_temp)^2;
@@ -135,11 +135,11 @@ end
 
 
 %% water phase sep
-function [error_out]= nested_opt_cost_sub2(mole_frac, O2C_values, H2C_values, molarmass_ratio, McGlashan_mode);
+function [error_out]= nested_opt_cost_sub2(mole_frac, O2C_values, H2C_values, molarmass_ratio, BAT_functional_group);
 % disp(num2str(mole_frac));
 
 [func1, func2, ycal_water, ycalc_org, activity_water, activity_org, mass_fraction1, mass_fraction2,Gibbs_RT, dGibbs_RTdx2]...
-    =BAT_properties_calculation_v1(mole_frac, O2C_values, H2C_values, molarmass_ratio, McGlashan_mode,[]);
+    =BAT_properties_calculation_v1(mole_frac, O2C_values, H2C_values, molarmass_ratio, BAT_functional_group,[]);
 
 error_out=(activity_water-1)^2;
 
@@ -147,11 +147,11 @@ end
 
 
 %% organic phase sep
-function [error_out]= nested_opt_cost_sub3(mole_frac, O2C_values, H2C_values, molarmass_ratio, McGlashan_mode);
+function [error_out]= nested_opt_cost_sub3(mole_frac, O2C_values, H2C_values, molarmass_ratio, BAT_functional_group);
 % disp(num2str(mole_frac));
 
 [func1, func2, ycal_water, ycalc_org, activity_water, activity_org, mass_fraction1, mass_fraction2,Gibbs_RT, dGibbs_RTdx2]...
-    =BAT_properties_calculation_v1(mole_frac, O2C_values, H2C_values, molarmass_ratio, McGlashan_mode,[]);
+    =BAT_properties_calculation_v1(mole_frac, O2C_values, H2C_values, molarmass_ratio, BAT_functional_group,[]);
 
 error_out=(activity_org-1)^2;
 

@@ -73,6 +73,7 @@ for i=1:total_sims
             else
                 aw_to_convert_at=0;
             end
+            
             % estimates effective Csat value at dry conditions
             [Csat_approx]=VBS_equilibration_extractCsat_withLLEpartition_KGv2(simulation_input(i).system.optional_Cliquid_ugPm3, simulation_input(i).system.optional_Cstar_ugPm3, ...
                 aw_to_convert_at, simulation_input(i).system.Molecular_weight, simulation_input(i).system.O2C_values, simulation_input(i).system.H2C_values,...

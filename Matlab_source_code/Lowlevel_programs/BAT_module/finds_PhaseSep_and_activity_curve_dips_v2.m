@@ -11,7 +11,7 @@
 % fix_molarmass_ratio_temp=    0.01;
 % 
 % H2C=0;
-% McGlashan_mode='initial fitting for biphasic transition'; % 'SOA chemicals' 'standard chemicals' 'initial fitting for biphasic transition'
+% BAT_functional_group='initial fitting for biphasic transition'; % 'SOA chemicals' 'standard chemicals' 'initial fitting for biphasic transition'
 % 
 % 
 % O2C_values_temp =0.2;
@@ -19,7 +19,7 @@
 % mole_frac_grid=[1:-0.0001:0]';
 % 
 % [func1, func2, ycal_water, ycalc_org, activity_water, activity_org, mass_fraction1, mass_fraction2,Gibbs_RT, dGibbs_RTdx2]...
-%     =mcglashan_activity_calc_KGv8(mole_frac_grid, O2C_values_temp, H2C, fix_molarmass_ratio_temp, McGlashan_mode,[]);
+%     =mcglashan_activity_calc_KGv8(mole_frac_grid, O2C_values_temp, H2C, fix_molarmass_ratio_temp, BAT_functional_group,[]);
 % activity_data=activity_org;
 % %activity_data=activity_water;
 

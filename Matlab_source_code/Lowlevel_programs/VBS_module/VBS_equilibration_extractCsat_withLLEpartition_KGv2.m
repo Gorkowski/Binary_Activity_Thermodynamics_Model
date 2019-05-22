@@ -1,5 +1,5 @@
 function [Csat_approx]=VBS_equilibration_extractCsat_withLLEpartition_KGv2(Cp_j_VBSold, Cstar_j_VBSold, ...
-     aw_measurment, molecular_weight, O2C_values, H2C_values,  McGlashan_mode, BAT_refinement_mode,N2C_values_denistyOnly )
+     aw_measurment, molecular_weight, O2C_values, H2C_values,  BAT_functional_group, BAT_refinement_mode,N2C_values_denistyOnly )
 %%
 % Created by Kyle Gorkowski [LAPTOP-A4QKFAC8] on 2018-Jul-13 11:21 AM
 % Copyright 2018 Kyle Gorkowski 
@@ -16,7 +16,7 @@ aw_vec=ones(S(1,1),1).*aw_measurment;
 
 McGlashan_fit_tolerance=10^-8;
 
-[~, mole_frac_org_beta] = inverted_NNMcGlashan_v8(O2C_values,H2C_values, Molar_mass_ratios, aw_vec, McGlashan_mode);
+[~, mole_frac_org_beta] = inverted_NNMcGlashan_v8(O2C_values,H2C_values, Molar_mass_ratios, aw_vec, BAT_functional_group);
 
 
 mass_fraction_water_beta=molecular_weight.*0;
@@ -29,12 +29,12 @@ for i=1:S(1,1)
 
               [~, func2, ycalc1, activity_coefficient_beta(i,1), activity_calc2_water, activity_calc2_beta, mass_fraction_water_beta(i,1), mass_fraction2,~,~, ~ ]=...
                 BAT_activity_calc_with_refinement_v1(mole_frac_org_beta(i,1), O2C_values(i,1), H2C_values(i,1),...
-                Molar_mass_ratios(i,1),McGlashan_mode,[], [BAT_refinement_mode,'beta'], aw_vec(i,1), N2C_values_denistyOnly);
+                Molar_mass_ratios(i,1),BAT_functional_group,[], [BAT_refinement_mode,'beta'], aw_vec(i,1), N2C_values_denistyOnly);
   
         else
             [~, func2, ycalc1, activity_coefficient_beta(i,1), activity_calc2_water, activity_calc2_beta, mass_fraction_water_beta(i,1), mass_fraction2,~,~, ~ ]=...
                 BAT_activity_calc_with_refinement_v1(mole_frac_org_beta(i,1), O2C_values(i,1), H2C_values(i,1),...
-                Molar_mass_ratios(i,1),McGlashan_mode,[], BAT_refinement_mode,  aw_vec(i,1), N2C_values_denistyOnly);
+                Molar_mass_ratios(i,1),BAT_functional_group,[], BAT_refinement_mode,  aw_vec(i,1), N2C_values_denistyOnly);
         end
 end
 

@@ -1,4 +1,6 @@
 function [RH_cross_point] = biphasic_to_single_phase_RH_master_v3(O2C, H2C, Mratio, mode)
+    error('change to v4')
+
 % Updated by Kyle Gorkowski [LAPTOP-A4QKFAC8] on 2018-Oct-26  3:38 PM
 % Updated by Kyle Gorkowski [GORKOWFALCON] on 2018-Dec-16 10:38 AM
 
