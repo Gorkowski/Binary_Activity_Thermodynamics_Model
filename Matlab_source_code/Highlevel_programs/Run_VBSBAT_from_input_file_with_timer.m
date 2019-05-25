@@ -3,7 +3,7 @@ function Run_VBSBAT_from_input_file_with_timer(file_full_path)
 % Created by Kyle Gorkowski [LAPTOP-A4QKFAC8] on 2019-Mar-26 12:55 PM
 % Copyright 2019 Kyle Gorkowski 
 %% 
-% run via camand line system('BAT_simulate "C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\runtime_programs\VBSBAT_test_aPsoa.csv"')
+% run via command line system('BAT_simulate "C:\Users\kkgor\Google Drive\Matlab_Code\AIOMFAC\BAT_code_v1\runtime_programs\VBSBAT_test_aPsoa.csv"')
 
 if not(exist('file_full_path'))
     % set default options
