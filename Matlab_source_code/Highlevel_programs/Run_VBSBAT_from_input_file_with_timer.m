@@ -17,7 +17,7 @@ end
 back_slashes=strfind(file_full_path,'\');
 cd(file_full_path(1:back_slashes(end)))
 
-% % convert csv extention to txt
+% % convert csv extension to txt
 % if strcmpi(file_full_path(end-3:end), '.csv') % check if file is csv
 %    copyfile(file_full_path, [file_full_path(1:end-4) '.txt'])% changes csv extention to txt
 %    file_full_path=[file_full_path(1:end-4) '.txt']; % sets to new text file
