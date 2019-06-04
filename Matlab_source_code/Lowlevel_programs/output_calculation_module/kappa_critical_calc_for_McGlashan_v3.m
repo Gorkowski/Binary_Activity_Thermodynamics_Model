@@ -19,7 +19,8 @@ Temp=kappa_CCN_settings.Temp;
 a_w=activity_water;
 
 % check to flip data so aw is increaseing
-if min(a_w)==length(a_w)
+[~,min_a_w_index]=min(a_w);
+if min_a_w_index==length(a_w)
     mass_fraction_water=flip(mass_fraction_water);
     mass_fraction_org=flip(mass_fraction_org);
     a_w=flip(a_w);
