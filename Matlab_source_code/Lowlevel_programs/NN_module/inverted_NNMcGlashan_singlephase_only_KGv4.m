@@ -56,6 +56,16 @@ function y = mapminmax_apply(x,settings)
   y = bsxfun(@minus,x,settings.xoffset);
   y = bsxfun(@times,y,settings.gain);
   y = bsxfun(@plus,y,settings.ymin);
+  
+  % replace bsxfun, element wise operation, below is method to use in
+  % Fortran, that doesn't utilize the matlab bsxfun
+%   size_setting = size(x);
+%   b = x - repmat(settings.xoffset, size(settings.gain,1)/ size_setting(1,1), size_setting(1,2)); % use 'spread' in fortran https://software.intel.com/en-us/fortran-compiler-developer-guide-and-reference-spread
+%   b = b .* repmat(settings.gain, size(settings.gain,1)/ size_setting(1,1), size_setting(1,2));
+%   b = b + repmat(settings.ymin, size(settings.gain,1)/ size_setting(1,1), size_setting(1,2));
+% 
+%   disp(y-b)
+%    y=b;
 end
 
 % Sigmoid Symmetric Transfer Function
@@ -68,4 +78,13 @@ function x = mapminmax_reverse(y,settings)
   x = bsxfun(@minus,y,settings.ymin);
   x = bsxfun(@rdivide,x,settings.gain);
   x = bsxfun(@plus,x,settings.xoffset);
+  
+%   % operations changed
+%   size_setting = size(x);
+%   b = y - repmat(settings.ymin, size(settings.gain,1)/ size_setting(1,1), size_setting(1,2));
+%   b = b ./ repmat(settings.gain, size(settings.gain,1)/ size_setting(1,1), size_setting(1,2));
+%   b = b + repmat(settings.xoffset, size(settings.gain,1)/ size_setting(1,1), size_setting(1,2)); % use 'spread' in fortran https://software.intel.com/en-us/fortran-compiler-developer-guide-and-reference-spread
+% 
+%   disp(x-b)
+% %   x=b;
 end
