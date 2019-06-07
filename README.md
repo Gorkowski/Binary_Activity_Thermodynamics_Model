@@ -6,7 +6,8 @@ The BAT modeling framework describes a mixture of organics with water as binary 
 For gas-particle partitioning, we use a non-ideal Volatility Basis Set (VBS) formulation that includes activity coefficients and accounts for liquid-liquid equilibrium. 
 Our model is capable of using both detailed molecular structures as well as bulk properties like O:C, molar mass, and component volatility classes.
 
-<!-- If you use the model please cite/reference our published paper XXX -->
+If you use the model please cite:
+Gorkowski, K., Preston, T. C. and Zuend, A.: RH-dependent organic aerosol thermodynamics via an efficient reduced-complexity model, Atmos. Chem. Phys. Discuss., (June), 1–37, https://doi.org/10.5194/acp-2019-495, 2019.
 
 ## Code and File Overview
 The source code is written in MATLAB 2018b, though it will likely run with past and future versions. 
@@ -22,4 +23,4 @@ You can also install the runtime engine independently from [MathWorks]( https://
 Then run the installed program, and a file dialog box will appear. Then select one of the example input files, e.g., [simple_input_single_run.txt](https://github.com/Gorkowski/Binary_Activity_Thermodynamics_Model/blob/master/Input_examples/simple_input_single_run.txt).
 
 ## Data and Figures From Paper
-The figures presented in Gorkowski et al. (2019) can be reproduced using the source code in [paper_figures](https://github.com/Gorkowski/Binary_Activity_Thermodynamics_Model/tree/master/Matlab_source_code/paper_figures). The data shown in the paper and the fit parameters are compiled in the [Excel workbook file](https://github.com/Gorkowski/Binary_Activity_Thermodynamics_Model/tree/master/Matlab_source_code/paper_figures/Figure_data).
+The figures presented in [Gorkowski et al. (2019)](https://doi.org/10.5194/acp-2019-495) can be reproduced using the source code in [paper_figures](https://github.com/Gorkowski/Binary_Activity_Thermodynamics_Model/tree/master/Matlab_source_code/paper_figures). The data shown in the paper and the fit parameters are compiled in the [Excel workbook file](https://github.com/Gorkowski/Binary_Activity_Thermodynamics_Model/tree/master/Matlab_source_code/paper_figures/Figure_data).
