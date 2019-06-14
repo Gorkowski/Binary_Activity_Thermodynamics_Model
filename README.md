@@ -10,7 +10,7 @@ If you use the model please cite:
 Gorkowski, K., Preston, T. C. and Zuend, A.: RH-dependent organic aerosol thermodynamics via an efficient reduced-complexity model, Atmos. Chem. Phys. Discuss., (June), 1–37, https://doi.org/10.5194/acp-2019-495, 2019.
 
 ## Code and File Overview
-The source code is written in MATLAB 2018b, though it will likely run with past and future versions. 
+The source code was written in MATLAB 2018b, though it will likely run with past and future versions. 
 The source code is in [Matlab_source_code](https://github.com/Gorkowski/Binary_Activity_Thermodynamics_Model/tree/master/Matlab_source_code), which contains [update_Matlab_paths.m](https://github.com/Gorkowski/Binary_Activity_Thermodynamics_Model/blob/master/Matlab_source_code/update_Matlab_paths.m) function that should be run to add the source folder to your MATLAB path.
 
 In addition to the source code, a standalone executable file has been compiled and can run the model if you have no MATLAB license.
