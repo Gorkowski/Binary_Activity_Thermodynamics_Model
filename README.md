@@ -42,7 +42,7 @@ The complete option list and settings used will be generated after each simulati
 Then set the 'dry' water activity used to calculate the Csat_j, if only C_liquid and Cstar are given.
 >calculate_Csat_j_with_aw=0
 
-Now `water activity` is used a trigger word to indicate the next line is the list of water activities used to run this mixture and that the `VBSBAT_options` have ended. The `water activity` values can have non-uniform spacing, but should be monatomic. 
+Now `water activity` is used as a trigger word to indicate the next line is a list of water activities used to run this mixture and that the `VBSBAT_options` have ended. The `water activity` values can have non-uniform spacing, but should be monatomic. 
 >water activity
 >0.9999,0.9998,0.9997,0.9996,0.9995,0.9994,0.9993,0.9992,0.9991,0.999,0.9989,0.9987,0.9985,0.9983,0.9981,0.9979,0.9975,0.9971,0.9967,0.9963,0.9959,0.9955,0.9951,0.9947,0.9927,0.9907,0.99,0.985,0.98,0.97,0.96,0.95,0.9,0.8,0.7,0.6,0.5,0.4,0.3,0.15,0.050.01,0.001,
 
