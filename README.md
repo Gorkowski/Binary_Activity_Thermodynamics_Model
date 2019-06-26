@@ -31,10 +31,10 @@ Each input block starts with the `run name`, which is used when writing the outp
 The next line contains the refinement method for the BAT model, which is different from the VBS model. The `BAT_refinement_mode` can only be interpolate, different methods can be added. Note, this is only used when the water activity is above `VBSBAT_options.BAT_refinement_aw=0.9` and the error in water activity is above `VBSBAT_options.BAT_refinement_tolerance=1e-06`
 >BAT_refinement_mode=interpolate
 
-Next are are the VBS+BAT options, which have predefined run modes. You have to start with a predefined run mode, and then declare any changes in subsequent lines. The run mode options are `default` (used in [Gorkowski et al. (2019)](https://doi.org/10.5194/acp-2019-495)), `robust` which takes longer and provides a check on how well the neural networks are doing, `NN only` uses only the neural networks without refinement, and `beta only` which forces a single organic-rich phase.
+Next, are the VBS+BAT options, which have predefined run modes. You have to start with a predefined run mode, and then declare any changes in subsequent lines. The run mode options are `default` (used in [Gorkowski et al. (2019)](https://doi.org/10.5194/acp-2019-495)), `robust` which takes longer and provides a check on how well the neural networks are doing, `NN only` uses only the neural networks without refinement, and `beta only` which forces a single organic-rich phase.
 >VBSBAT_options.run_mode_used=default ,{default,robust,NN only,beta only} 
 
-Below this you can add your modifications, like turning off the graphs.
+Below this, you can add your modifications, like turning off the graphs.
 >VBSBAT_options.plot_PM=no ,{yes, no : option to make simple output graph}
 
 The complete option list and settings used will be generated after each simulation run in a separate text file, like `VBSBAT_input_used_aPsoat1.txt`. 
