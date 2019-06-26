@@ -48,6 +48,7 @@ Now `water activity` is used as a trigger word to indicate the next line is a li
 
 The next trigger word is `system properties`, which is used to indicate the reading in of the organic composition. Note, currently the `BAT functional group` **must have a space** after and before the separating comma. The `optional Name` **IS NOT OPTIONAL** and does nothing currently, but it will be used in the future for more detailed output files. We are working on improving the input file reader.
 >system properties,
+
 >M (g/mol), O:C, H:C  , eff. Csat_j (ug/m3), Ctotal_j (ug/m3) , BAT functional group, optional Name, optional Cstar (ug/m3), optional C^liquid (ug/m3),
 
 >2.00E+02,4.00E-01,1.60E+00,5.74E+03,8.79E+00, hydroperoxideSOA ,C107OOH,8620.171693,0.007057093,
