@@ -52,6 +52,7 @@ VBSBAT_options.BAT_refinement_tolerance=10^-6;
 
 %% plots
 VBSBAT_options.plot_PM='no';
+VBSBAT_options.write_simple_output='yes';
 
 VBSBAT_options.mean_BAT_functional_group='hydroxyl';
 VBSBAT_options.BAT_functional_group_options={'hydroxyl';'carboxyl';'ether';'ketone';'ester';'hydroperoxide';'hydroperoxideSOA';'PEG'};

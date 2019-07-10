@@ -44,7 +44,7 @@ Vw=sum(Caq_PM,2)./densityEst_water_ugPm3;
 
 % bulk kappa methods
 kappaHGF=(1./aw_series-1).*(Vw+Vs-Vs_dry)./Vs_dry; % accounts for co-condensation
-kappa=(1./aw_series-1).*(Vw)./Vs; % with co-condensation
+kappa=(1./aw_series-1).*(Vw)./Vs; % with out co-condensation
 
 growth.kappa.kappaHGF=kappaHGF;
 growth.kappa.kappa=kappa;
@@ -65,15 +65,64 @@ growth.PM.radius=growth.PM.volume.^(1/3);
 growth.PM.mass=(C_OA_PM+Caq_PM)./(C_OA_PM(min_aw_i)+Caq_PM(min_aw_i));
 
 
-%% kappa CCN direct with defaults
+%% Satruation calculation, direct from VBS-BAT with default size and surface tension mixing
 mass_fraction_water=Caq_PM./(Caq_PM+C_OA_PM);
 mass_fraction_org=C_OA_PM./(Caq_PM+C_OA_PM);
 kappa_CCN_settings=get_default_kappa_CCN_settings;
 
-[~, ~, ~, ~, ~, alternate]= kappa_critical_calc_for_McGlashan_v3(...
-    mean_densityEst_ugPm3.*10^-12, mass_fraction_water, mass_fraction_org, aw_series, aw_series, kappa_CCN_settings);
+% calc saturation ratios
+if not(exist('kappa_CCN_settings'))
+    % set default options
+    kappa_CCN_settings=get_default_kappa_CCN_settings;
+end
+%% program
+Diameter_vol_eqv_org_nm=kappa_CCN_settings.Diameter_vol_eqv_org_nm;
+density_water_g_cm3=kappa_CCN_settings.density_water_g_cm3;
+Mw=kappa_CCN_settings.Mw;
+R=kappa_CCN_settings.R;
+Temp=kappa_CCN_settings.Temp;
+a_w=aw_series;
 
-growth.kappaCCN_direct=alternate;
+% % check to flip data so aw is increaseing
+% [~,min_a_w_index]=min(a_w);
+% if min_a_w_index==length(a_w)
+%     mass_fraction_water=flip(mass_fraction_water);
+%     mass_fraction_org=flip(mass_fraction_org);
+%     a_w=flip(a_w);
+% end
+
+
+V_dp_m=4./3.*pi.*(Diameter_vol_eqv_org_nm.*10^-9./2).^3; % volume dp particle
+w_org=mean_densityEst_ugPm3.*10^-12.*1000.*V_dp_m;  % estimate mass of org
+V_w=1./(density_water_g_cm3.*1000).*w_org.*(mass_fraction_water./mass_fraction_org);
+V_total=V_dp_m+V_w;
+
+if strcmpi(kappa_CCN_settings.surface_tension_method, 'volume mix')
+    sigma_droplet_N_m=(kappa_CCN_settings.sigmaW_droplet_N_m.*V_w+kappa_CCN_settings.sigmaOrg_droplet_N_m.*V_dp_m)./V_total;
+elseif strcmpi(kappa_CCN_settings.surface_tension_method, 'water')
+    sigma_droplet_N_m=kappa_CCN_settings.sigmaW_droplet_N_m;
+elseif strcmpi(kappa_CCN_settings.surface_tension_method, 'organic')
+    sigma_droplet_N_m=kappa_CCN_settings.sigmaOrg_droplet_N_m;
+end
+
+
+Diameter_total=real(2*(V_total.*3/(4*pi)).^(1/3));
+
+SatRatio=a_w.*exp_wlimiter(4.*sigma_droplet_N_m.*Mw./(R.*Temp.*density_water_g_cm3.*1000.*Diameter_total));
+
+[sat_max, sat_max_i]=max(SatRatio);
+
+
+
+% [kappa_SatCritical, ~, ~, ~, ~, alternate]= kappa_critical_calc_for_McGlashan_v3(...
+%     mean_densityEst_ugPm3.*10^-12, mass_fraction_water, mass_fraction_org, aw_series, aw_series, kappa_CCN_settings);
+
+growth.CCN_direct.diamter_total=Diameter_total;
+growth.CCN_direct.SatRatio=SatRatio;
+growth.CCN_direct.kappa_with_cocondensation=kappaHGF(sat_max_i);
+growth.CCN_direct.kappa_without_cocondensation=kappa(sat_max_i);
+growth.CCN_direct.SatRatio_max=sat_max;
+
 
 end
 

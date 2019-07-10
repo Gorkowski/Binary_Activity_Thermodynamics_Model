@@ -47,7 +47,7 @@ end
 Diameter_total=real(2*(V_total.*3/(4*pi)).^(1/3));
 
 SatRatio=a_w.*exp_wlimiter(4.*sigma_droplet_N_m.*Mw./(R.*Temp.*density_water_g_cm3.*1000.*Diameter_total));
-SatRatio_percent=(SatRatio-1).*100;
+% SatRatio_percent=(SatRatio-1).*100;
 
 kappa=(1./a_w-1).*(V_w./V_dp_m);
 

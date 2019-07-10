@@ -16,6 +16,10 @@ for i=1:length(O2C) % loops through one compound at a time
     [func1, func2, ycal_water, ycalc_org, activity_water, activity_org, mass_fraction1, mass_fraction2,Gibbs_RT, dGibbs_RTdx2]...
         =BAT_properties_calculation_v1(mole_frac, O2C(i,1),  H2C(i,1), Mratio(i,1),BAT_functional_group(i,:),[]);
     
+    if isnan(activity_water)
+        error('water activity is NaN, check inputs')
+    end
+    
     [phase_sep_check,~,upper_a_w_sep_index, ~]=finds_PhaseSep_w_and_org(activity_water,activity_org); % finds a_w sep. point
 
     

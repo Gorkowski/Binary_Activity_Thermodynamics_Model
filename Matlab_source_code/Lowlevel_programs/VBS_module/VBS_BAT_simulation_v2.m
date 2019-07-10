@@ -107,9 +107,13 @@ VBSBAT_fit_counter=0; % some timing counters
 toc_BAT_cumlitive=0;
 toc_VBSBAT_cumlitive=0;
 BAT_fit_counter=0;
+
+if sum(C_OM_ugPm3)==0
+    error('zero concentration of all species')
+end
+
 for s_i=1:S_full(1,1) % iterates through aw values
-    
-    
+
     aw=aw_series(s_i,1); % selects aw
     
     aw_vec=ones(S(1,1),1).*aw; % duplicates aw to match organic numb
@@ -333,6 +337,14 @@ C_OA_PM=C_OA_out;
 Caq_PM=sum(Caq_j_PM,2);
 C_OA_ratio=C_OA_PM./C_OA_PM(min_aw_i,1);
 
+
+% organic mass weighted O2C, MW, H:C
+mass_fraction_inPM=Coa_j_PM./C_OA_PM;
+mass_weighted_avg_MW=sum(mass_fraction_inPM.* repmat(Molecular_weight',S_full(1,1),1),2);
+mass_weighted_avg_O2C=sum(mass_fraction_inPM.* repmat(O2C_values',S_full(1,1),1),2);
+mass_weighted_avg_H2C=sum(mass_fraction_inPM.* repmat(H2C_values',S_full(1,1),1),2);
+
+
 % calc kappa
 [kappaHGF,kappa, growth] = bulk_kappa_v1(O2C_values, H2C_values,...
     Molecular_weight, aw_series, Coa_j_PM, Caq_PM);
@@ -358,6 +370,7 @@ details.species_specific.mass_fraction_water_beta=mass_fraction_water_beta_out;
 details.species_specific.q_alpha_water=q_alpha_water_out;
 details.species_specific.q_alpha_org_values=q_alpha_vsRH_values;
 details.species_specific.q_alpha_org_used=weight_q_alpha;
+details.species_specific.mass_fraction_inPM=mass_fraction_inPM;
 % usefull calcs
 Molecular_weight_withwater=[Molecular_weight;18.015];
 details.species_specific.postEquilb.mole_fraction_water_free_alpha=(Coa_j_alpha./Molecular_weight')./sum(Coa_j_alpha./Molecular_weight',2);
@@ -376,6 +389,9 @@ details.totals.Caq_PM=Caq_PM;
 details.totals.Caq_PM_alpha=sum(details.species_specific.Caq_j_alpha,2);
 details.totals.Caq_PM_beta=sum(details.species_specific.Caq_j_beta,2);
 details.totals.C_OA_ratio=C_OA_ratio;
+details.totals.mass_weighted_avg_MW=mass_weighted_avg_MW;
+details.totals.mass_weighted_avg_O2C=mass_weighted_avg_O2C;
+details.totals.mass_weighted_avg_H2C=mass_weighted_avg_H2C;
 details.kappas.kappaHGF=kappaHGF;
 details.kappas.kappa=kappa;
 details.growth=growth;
@@ -410,5 +426,8 @@ if strcmpi(VBSBAT_options.plot_PM,'yes')
 end
 
 % save output files
-write_VBSBAT_output_files(sim_name,details)
+if strcmpi(VBSBAT_options.write_simple_output,'yes')
+    write_VBSBAT_output_files(sim_name,details)
+end
+
 
