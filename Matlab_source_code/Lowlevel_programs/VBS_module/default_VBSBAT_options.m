@@ -59,6 +59,11 @@ VBSBAT_options.BAT_functional_group_options={'hydroxyl';'carboxyl';'ether';'keto
 
 VBSBAT_options.run_mode_used=run_mode;
 VBSBAT_options.run_mode_possible_options={{'default', 'robust', 'NN only', 'beta only'}; {' Add your own in default_VBSBAT_options.m lines 61-80'}};
+
+% kappa default calcs
+VBSBAT_options.kappa_CCN_settings = get_default_kappa_CCN_settings;
+
+
 if strcmpi(run_mode, 'default')
     % changes nothing
 elseif strcmpi(run_mode, 'robust')

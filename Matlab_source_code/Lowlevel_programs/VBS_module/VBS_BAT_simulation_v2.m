@@ -348,7 +348,7 @@ mass_weighted_avg_H2C=sum(mass_fraction_inPM.* repmat(H2C_values',S_full(1,1),1)
 
 % calc kappa
 [kappaHGF,kappa, growth] = bulk_kappa_v1(O2C_values, H2C_values,...
-    Molecular_weight, aw_series, Coa_j_PM, Caq_PM);
+    Molecular_weight, aw_series, Coa_j_PM, Caq_PM, VBSBAT_options.kappa_CCN_settings);
 
 timer_end=toc;
 

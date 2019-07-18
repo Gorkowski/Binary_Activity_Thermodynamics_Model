@@ -1,10 +1,13 @@
 function [kappaHGF,kappa, growth] = bulk_kappa_v1(O2C_values, H2C_values,...
-    Molecular_weight, aw_series, Coa_j_PM, Caq_PM)
+    Molecular_weight, aw_series, Coa_j_PM, Caq_PM, kappa_CCN_settings)
 %%
 % Created by Kyle Gorkowski [GORKOWFALCON] on 2018-Dec-16  1:38 PM
 % Copyright 2018 Kyle Gorkowski 
 %% 
-
+if not(exist('kappa_CCN_settings'))
+    % set default options
+    kappa_CCN_settings=get_default_kappa_CCN_settings;
+end
 
 %% calc kappa
 %Petters, M. D. and Kreidenweis, S. M.: A single parameter representation
@@ -68,9 +71,7 @@ growth.PM.mass=(C_OA_PM+Caq_PM)./(C_OA_PM(min_aw_i)+Caq_PM(min_aw_i));
 %% Satruation calculation, direct from VBS-BAT with default size and surface tension mixing
 mass_fraction_water=Caq_PM./(Caq_PM+C_OA_PM);
 mass_fraction_org=C_OA_PM./(Caq_PM+C_OA_PM);
-kappa_CCN_settings=get_default_kappa_CCN_settings;
 
-% kappa_CCN_settings.surface_tension_method='water';
 % calc saturation ratios
 %% program
 Diameter_vol_eqv_org_nm=kappa_CCN_settings.Diameter_vol_eqv_org_nm;
