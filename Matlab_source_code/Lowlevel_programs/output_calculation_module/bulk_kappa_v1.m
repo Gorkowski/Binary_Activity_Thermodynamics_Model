@@ -70,11 +70,8 @@ mass_fraction_water=Caq_PM./(Caq_PM+C_OA_PM);
 mass_fraction_org=C_OA_PM./(Caq_PM+C_OA_PM);
 kappa_CCN_settings=get_default_kappa_CCN_settings;
 
+% kappa_CCN_settings.surface_tension_method='water';
 % calc saturation ratios
-if not(exist('kappa_CCN_settings'))
-    % set default options
-    kappa_CCN_settings=get_default_kappa_CCN_settings;
-end
 %% program
 Diameter_vol_eqv_org_nm=kappa_CCN_settings.Diameter_vol_eqv_org_nm;
 density_water_g_cm3=kappa_CCN_settings.density_water_g_cm3;
@@ -82,14 +79,6 @@ Mw=kappa_CCN_settings.Mw;
 R=kappa_CCN_settings.R;
 Temp=kappa_CCN_settings.Temp;
 a_w=aw_series;
-
-% % check to flip data so aw is increaseing
-% [~,min_a_w_index]=min(a_w);
-% if min_a_w_index==length(a_w)
-%     mass_fraction_water=flip(mass_fraction_water);
-%     mass_fraction_org=flip(mass_fraction_org);
-%     a_w=flip(a_w);
-% end
 
 
 V_dp_m=4./3.*pi.*(Diameter_vol_eqv_org_nm.*10^-9./2).^3; % volume dp particle

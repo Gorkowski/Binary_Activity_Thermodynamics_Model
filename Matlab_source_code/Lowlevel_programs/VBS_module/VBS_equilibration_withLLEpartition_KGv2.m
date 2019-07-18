@@ -95,18 +95,24 @@ end
     q_alpha_water, error_out]= VBS_equilibration_withLLEpartition_objFun_KGv3(fit_CoaEj, ...
     C_OM_ugPm3, Cstar_dry, activity_coefficient_AB, q_alpha_molefrac_phase_split_org, mass_fraction_water_AB, molecular_weight);
 
+
+
+
+
+
+% nested cost function for optimization
+    function [error_out]= nested_opt_cost_sub1(guess_CoaEj, ...
+            C_OM_ugPm3, Cstar_dry, activity_coefficient_AB, q_alpha_molefrac_phase_split_org, mass_fraction_water_AB, molecular_weight)
+        
+        
+        [partition_coefficients_AB, Coa_j_AB, Caq_j_AB, Cstar_j, Coa_AB, Caq_AB, Coa, q_alpha_water, error_out]= VBS_equilibration_withLLEpartition_objFun_KGv3(guess_CoaEj, ...
+            C_OM_ugPm3, Cstar_dry, activity_coefficient_AB, q_alpha_molefrac_phase_split_org, mass_fraction_water_AB, molecular_weight);
+        
+    end
 end
 
 
-% cost function for optimization 
-function [error_out]= nested_opt_cost_sub1(guess_CoaEj, ...
-    C_OM_ugPm3, Cstar_dry, activity_coefficient_AB, q_alpha_molefrac_phase_split_org, mass_fraction_water_AB, molecular_weight)
 
-
-[partition_coefficients_AB, Coa_j_AB, Caq_j_AB, Cstar_j, Coa_AB, Caq_AB, Coa, q_alpha_water, error_out]= VBS_equilibration_withLLEpartition_objFun_KGv3(guess_CoaEj, ...
-    C_OM_ugPm3, Cstar_dry, activity_coefficient_AB, q_alpha_molefrac_phase_split_org, mass_fraction_water_AB, molecular_weight);
-
-end
 
 
 

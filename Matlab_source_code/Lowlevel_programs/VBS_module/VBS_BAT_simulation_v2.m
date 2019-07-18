@@ -298,6 +298,7 @@ for s_i=1:S_full(1,1) % iterates through aw values
             Coa_AB=Coa_AB_temp;
             C_OA_PM=C_OA_temp;
             q_alpha_water=q_alpha_water_temp;
+            weight_q_alpha(s_i,1)=0;
         end
         
     end
