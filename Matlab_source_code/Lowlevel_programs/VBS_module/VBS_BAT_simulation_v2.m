@@ -227,14 +227,20 @@ for s_i=1:S_full(1,1) % iterates through aw values
         
         VBSBAT_fit_counter=VBSBAT_fit_counter+1;
         
-        mass_inPM_temp=partition_coefficients_temp.*C_OM_ugPm3.*mean_prop_mask; % mask for phase sep org add .*mean_prop_mask
-        mass_fraction_inPM=(mass_inPM_temp)./C_OA_temp;
+        %% old mass weighted averages 
+%         mass_inPM_temp=partition_coefficients_temp.*C_OM_ugPm3.*mean_prop_mask; % mask for phase sep org add .*mean_prop_mask
+%         mass_fraction_inPM=(mass_inPM_temp)./C_OA_temp;
+%         
+%         %% mean prop used in mean q_alpha calc
+%          Mratio_temp=18.015./sum(mass_fraction_inPM.* Molecular_weight);
+%          O2C_temp=sum(mass_fraction_inPM.* O2C_values);
+%         H2C_temp=sum(mass_fraction_inPM.* H2C_values);
         
-        %% mean prop used in mean q_alpha calc
-        Mratio_temp=18.015./sum(mass_fraction_inPM.* Molecular_weight);
-        O2C_temp=sum(mass_fraction_inPM.* O2C_values);
-        H2C_temp=sum(mass_fraction_inPM.* H2C_values);
-        
+        %molar based averages
+        [avg_M_gPmol, O2C_temp, H2C_temp, ~, ~] = ...
+    molar_based_means(Coa_j_AB_temp(:,2)', Molecular_weight, O2C_values, H2C_values, N2C_values_denistyOnly);
+        Mratio_temp=18.015./avg_M_gPmol;
+
         [a_w_sep_point_of_meanPM(s_i,1)] = biphasic_to_single_phase_RH_master_v4(O2C_temp, H2C_temp, Mratio_temp, VBSBAT_options.mean_BAT_functional_group);
         
         [weight_q_alpha(s_i,1)] = q_alpha_transfer_vs_aw_calc_v1(a_w_sep_point_of_meanPM(s_i,1), aw, VBSBAT_options);
@@ -341,9 +347,13 @@ C_OA_ratio=C_OA_PM./C_OA_PM(min_aw_i,1);
 
 % organic mass weighted O2C, MW, H:C
 mass_fraction_inPM=Coa_j_PM./C_OA_PM;
-mass_weighted_avg_MW=sum(mass_fraction_inPM.* repmat(Molecular_weight',S_full(1,1),1),2);
-mass_weighted_avg_O2C=sum(mass_fraction_inPM.* repmat(O2C_values',S_full(1,1),1),2);
-mass_weighted_avg_H2C=sum(mass_fraction_inPM.* repmat(H2C_values',S_full(1,1),1),2);
+[avg_M_gPmol, molar_avg_O2C, molar_avg_H2C, molar_avg_N2C, mass_weighted_avg_O2C] = ...
+    molar_based_means(Coa_j_PM, Molecular_weight, O2C_values, H2C_values, N2C_values_denistyOnly);
+
+%old method has a high O2C bias
+% mass_weighted_avg_MW=sum(mass_fraction_inPM.* repmat(Molecular_weight',S_full(1,1),1),2);
+% mass_weighted_avg_O2C=sum(mass_fraction_inPM.* repmat(O2C_values',S_full(1,1),1),2);
+% mass_weighted_avg_H2C=sum(mass_fraction_inPM.* repmat(H2C_values',S_full(1,1),1),2);
 
 
 % calc kappa
@@ -390,9 +400,11 @@ details.totals.Caq_PM=Caq_PM;
 details.totals.Caq_PM_alpha=sum(details.species_specific.Caq_j_alpha,2);
 details.totals.Caq_PM_beta=sum(details.species_specific.Caq_j_beta,2);
 details.totals.C_OA_ratio=C_OA_ratio;
-details.totals.mass_weighted_avg_MW=mass_weighted_avg_MW;
+details.totals.avg_M_gPmol=avg_M_gPmol;
 details.totals.mass_weighted_avg_O2C=mass_weighted_avg_O2C;
-details.totals.mass_weighted_avg_H2C=mass_weighted_avg_H2C;
+details.totals.molar_avg_O2C=molar_avg_O2C;
+details.totals.molar_avg_H2C=molar_avg_H2C;
+details.totals.molar_avg_N2C=molar_avg_N2C;
 details.kappas.kappaHGF=kappaHGF;
 details.kappas.kappa=kappa;
 details.growth=growth;

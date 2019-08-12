@@ -126,36 +126,22 @@ for m_i=1:length(molar_masses_plot)
     [~,plot_index]=min(abs(molar_masses_plot(m_i)-molar_masses));
     plot(O2C_values,kappa_SatCritical_OH(:,plot_index)','DisplayName', [mode1 ' ' num2str(molar_masses_plot(m_i)) ' g/mol' ],...
         'Color',colorOrder(m_i,:), 'LineWidth', 2)
-%         plot(O2C_values,kappa_SatCritical_OH_alpha(:,plot_index)','DisplayName', [mode1 ' beta ' num2str(molar_masses_plot(m_i)) ' g/mol' ],...
-%         'Color',colorOrder(m_i,:), 'LineWidth', 1)
     
     % miscibility gap fill.
     [plot_top,xvalues]=Removes_nan_rows_dual(kappa_SatCritical_OH_alpha(:,plot_index),O2C_values);
         [plot_bottom,~]=Removes_nan_rows_dual(kappa_SatCritical_OH_beta(:,plot_index),O2C_values);
 
-%     fill(axes1,[xvalues;flip(xvalues)],[plot_top;flip(plot_bottom)],'r','FaceAlpha',0.25,...
-%         'FaceColor',[0.63921568627451 0.07843137254902 0.180392156862745],...
-%         'EdgeColor','none');
     
     %
     if m_i==4 %|| m_i==2
         plot(O2C_values,kappa_SatCritical_OOH(:,plot_index)','--', 'DisplayName', [mode2 ' ' num2str(molar_masses_plot(m_i)) ' g/mol' ],...
             'Color',colorOrder(m_i,:), 'LineWidth', 2)
-%         plot(O2C_values,kappa_SatCritical_OOH_alpha(:,plot_index)','--', 'DisplayName', [mode2 ' beta ' num2str(molar_masses_plot(m_i)) ' g/mol' ],...
-%             'Color',colorOrder(m_i,:), 'LineWidth', 1)
+
         
         plot(O2C_values,kappa_intrinsic(:,plot_index)',':', 'DisplayName', ['\kappa intr ' num2str(molar_masses_plot(m_i)) ' g/mol' ],...
             'Color',colorOrder(m_i,:), 'LineWidth', 2)
         
-            % miscibility gap fill.
-%     [plot_top,xvalues]=Removes_nan_rows_dual(kappa_SatCritical_OOH_alpha(:,plot_index),O2C_values);
-%         [plot_bottom,~]=Removes_nan_rows_dual(kappa_SatCritical_OOH_beta(:,plot_index),O2C_values);
-% 
-%     fill(axes1,[xvalues;flip(xvalues)],[plot_top;flip(plot_bottom)],'r','FaceAlpha',0.25,...
-%         'FaceColor',[0.63921568627451 0.07843137254902 0.180392156862745],...
-%         'EdgeColor','none');
-%     
-    
+  
     end
 end
 point_size=20;
@@ -164,6 +150,8 @@ scatter(alpha_pinene_data(:,2),alpha_pinene_data(:,1),point_size,'DisplayName','
     'MarkerFaceColor',[1 0.074509803921569 0.650980392156863],...
     'MarkerEdgeColor',[0 0 0],...
     'LineWidth',2);
+
+
 
 % scatter(isporene_data(:,2),isporene_data(:,1),point_size+10,'DisplayName','Isoprene SOA',...
 %     'MarkerFaceColor',[0 1 0],...
@@ -198,34 +186,16 @@ for m_i=1:length(O2C_values_plot)
     
     plot(molar_masses,kappa_SatCritical_OH(plot_index,:)','DisplayName', [mode1 ' ' num2str(O2C_values_plot(m_i)) ' O:C' ],...
         'Color',colorOrder(m_i,:), 'LineWidth', 2)
-%     plot(molar_masses,kappa_SatCritical_OH_alpha(plot_index,:)','DisplayName', [mode1 ' beta ' num2str(O2C_values_plot(m_i)) ' O:C' ],...
-%         'Color',colorOrder(m_i,:), 'LineWidth', 1)
+
     
     plot(molar_masses,kappa_SatCritical_OOH(plot_index,:)','--','DisplayName', [mode2 ' ' num2str(O2C_values_plot(m_i)) ' O:C' ],...
         'Color',colorOrder(m_i,:), 'LineWidth', 2)
-%     plot(molar_masses,kappa_SatCritical_OOH_alpha(plot_index,:)','--','DisplayName', [mode2 ' beta ' num2str(O2C_values_plot(m_i)) ' O:C' ],...
-%         'Color',colorOrder(m_i,:), 'LineWidth', 1)
+
     
     plot(molar_masses,kappa_intrinsic(plot_index,:)',':', 'DisplayName', ['\kappa intr ' num2str(O2C_values_plot(m_i)) ' O:C' ],...
         'Color',colorOrder(m_i,:), 'LineWidth', 2)
     
     
-%         % miscibility gap fill.
-%     [plot_top,xvalues]=Removes_nan_rows_dual(kappa_SatCritical_OH_alpha(plot_index,:)',molar_masses);
-%         [plot_bottom,~]=Removes_nan_rows_dual(kappa_SatCritical_OH_beta(plot_index,:)',molar_masses);
-% 
-%     fill(axes2,[xvalues;flip(xvalues)],[plot_top;flip(plot_bottom)],'r','FaceAlpha',0.25,...
-%         'FaceColor',[0.63921568627451 0.07843137254902 0.180392156862745],...
-%         'EdgeColor','none');
-%     
-        
-%         % miscibility gap fill.
-%     [plot_top,xvalues]=Removes_nan_rows_dual(kappa_SatCritical_OOH_alpha(plot_index,:)',molar_masses);
-%         [plot_bottom,~]=Removes_nan_rows_dual(kappa_SatCritical_OOH_beta(plot_index,:)',molar_masses);
-% 
-%     fill(axes2,[xvalues;flip(xvalues)],[plot_top;flip(plot_bottom)],'r','FaceAlpha',0.25,...
-%         'FaceColor',[0.63921568627451 0.07843137254902 0.180392156862745],...
-%         'EdgeColor','none');
     
 end
 xlabel('Molar Mass')
@@ -238,5 +208,6 @@ saveas(figure1, [plot_name '.fig'], 'fig')
 
 
 
-
+save('kappaCCN_lines.mat','kappa_SatCritical_OOH','kappa_intrinsic','O2C_values',...
+    'molar_masses_plot','kappa_SatCritical_OH','molar_masses','O2C_values_plot','mode1','mode2')
 
