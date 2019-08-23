@@ -43,10 +43,10 @@ if strcmpi(VBSBAT_options.force_phase.onePhase, 'no') % includes two phase optio
     if sum(O2C_single_phase_cross_point)>0 % has a separation activity
         
         % get a_w_sep_point
-        [a_w_sep_point] = biphasic_to_single_phase_RH_master_v4(O2C_values, H2C_values, Molar_mass_ratios, BAT_functional_group);
+        [a_w_LLPS_point] = biphasic_to_single_phase_RH_master_v4(O2C_values, H2C_values, Molar_mass_ratios, BAT_functional_group);
         
         % isolates miscible
-        a_w_sep_point=a_w_sep_point.*O2C_single_phase_cross_point;
+        a_w_sep_point=a_w_LLPS_point.*O2C_single_phase_cross_point;
         
         % create a_w_sep_point matrix to match aw_series length and
         % chemical species width
@@ -66,11 +66,15 @@ if strcmpi(VBSBAT_options.force_phase.onePhase, 'no') % includes two phase optio
         
     else
         q_alpha_vsRH_values=ones(S_full(1,1),S(1,1)); % fully miscible
+        a_w_LLPS_point=0;
+
     end
 elseif strcmpi(VBSBAT_options.force_phase.onePhase, 'beta')
     q_alpha_vsRH_values=zeros(S_full(1,1),S(1,1)); % organic phase only
+    a_w_LLPS_point=1;
 elseif strcmpi(VBSBAT_options.force_phase.onePhase, 'alpha')
     q_alpha_vsRH_values=ones(S_full(1,1),S(1,1)); % water rich phase only
+    a_w_LLPS_point=0;
 else
     error('select VBSBAT_options.force_phase.onePhase')
 end
@@ -388,8 +392,7 @@ details.species_specific.postEquilb.mole_fraction_water_free_alpha=(Coa_j_alpha.
 details.species_specific.postEquilb.mole_fraction_water_free_beta=(Coa_j_beta./Molecular_weight')./sum(Coa_j_beta./Molecular_weight',2);
 details.species_specific.postEquilb.mole_fraction_alpha=([Coa_j_alpha,sum(Caq_j_alpha,2)]./Molecular_weight_withwater')./sum([Coa_j_alpha,sum(Caq_j_alpha,2)]./Molecular_weight_withwater',2);
 details.species_specific.postEquilb.mole_fraction_beta=([Coa_j_beta,sum(Caq_j_beta,2)]./Molecular_weight_withwater')./sum([Coa_j_beta,sum(Caq_j_beta,2)]./Molecular_weight_withwater',2);
-
-
+details.species_specific.a_w_LLPS_point=a_w_LLPS_point;
 
 % the totals
 details.totals.C_OA=C_OA_out;

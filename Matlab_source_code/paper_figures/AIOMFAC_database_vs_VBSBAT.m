@@ -10,12 +10,15 @@ BAT_refinement_mode='interpolate'; % 'none' 'interpolate'
 
 % individual species simulation VBSBAT 
 VBSBAT_options=default_VBSBAT_options('default');%'robust' 'default'
+VBSBAT_options.plot_PM='no';
+VBSBAT_options.write_simple_output='no';
 % VBSBAT_options.q_alpha.min_spread_in_aw=10^-6;
 % VBSBAT_options.q_alphaVBS.method_to_use='individual';%mean_prop or individual
 % mean prop species simulation VBSBAT
 VBSBAT_options_mean=VBSBAT_options;
 VBSBAT_options_mean.VBSBAT_NN_options.NN_type='individual_properties'; 
 VBSBAT_options_mean.mean_BAT_functional_group='hydroperoxideSOA';
+
 
 extension_name='_final';
 
