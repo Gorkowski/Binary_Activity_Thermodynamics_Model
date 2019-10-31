@@ -7,7 +7,7 @@ For gas-particle partitioning, we use a non-ideal Volatility Basis Set (VBS) for
 Our model is capable of using both detailed molecular structures as well as bulk properties like O:C, molar mass, and component volatility classes.
 
 If you use the model please cite:
-Gorkowski, K., Preston, T. C. and Zuend, A.: RH-dependent organic aerosol thermodynamics via an efficient reduced-complexity model, Atmos. Chem. Phys. Discuss., (June), 1–37, https://doi.org/10.5194/acp-2019-495, 2019.
+Gorkowski, K., Preston, T. C., and Zuend, A.: Relative-humidity-dependent organic aerosol thermodynamics via an efficient reduced-complexity model, Atmos. Chem. Phys., 19, 13383–13407, https://doi.org/10.5194/acp-19-13383-2019, 2019.
 
 ## Code and File Overview
 The source code was written in MATLAB 2018b, though it will likely run with past and future versions. 
