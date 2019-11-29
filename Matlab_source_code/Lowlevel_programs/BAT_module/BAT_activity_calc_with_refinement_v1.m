@@ -33,8 +33,11 @@ elseif strcmpi(refinement_mode,'interpolatebeta')
 %     [phase_sep_check,lower_a_w_sep_index,upper_a_w_sep_index, matching_Upper_a_w_sep_index]=finds_PhaseSep_w_and_org(activity_water,activity_org);
 % check how the order of this is working 
     if phaseSep_via_activity_curvature==1
-        
-        mole_frac_fit=interp1(activity_water(index_phase_sep_end:end,1), mole_frac(index_phase_sep_end:end,1),aw_desired,'linear');
+        if index_phase_sep_end<length(activity_water) % fixed error for always sep
+            mole_frac_fit=interp1(activity_water(index_phase_sep_end:end,1), mole_frac(index_phase_sep_end:end,1),aw_desired,'linear');
+        else
+            mole_frac_fit=mole_frac(end,1);
+        end
     else
         
         mole_frac_fit=interp1(activity_water(1:end,1), mole_frac(1:end,1),aw_desired,'linear');
@@ -61,8 +64,11 @@ elseif strcmpi(refinement_mode,'interpolatealpha')
     [phaseSep_via_activity,phaseSep_via_activity_curvature,index_phase_sep_starts,index_phase_sep_end]=finds_PhaseSep_and_activity_curve_dips_v2(activity_water);
     
     if phaseSep_via_activity_curvature==1
-        
-        mole_frac_fit=interp1(activity_water(1:index_phase_sep_starts,1), mole_frac(1:index_phase_sep_starts,1),aw_desired,'linear');
+        if index_phase_sep_end<length(activity_water) % fixed error for always sep
+            mole_frac_fit=interp1(activity_water(1:index_phase_sep_starts,1), mole_frac(1:index_phase_sep_starts,1),aw_desired,'linear');
+        else
+            mole_frac_fit=mole_frac(end,1);
+        end
     else
         mole_frac_fit=interp1(activity_water(1:end,1), mole_frac(1:end,1),aw_desired,'linear');
     end

@@ -44,7 +44,7 @@ else
     error(' Select VBSBAT_options.optimization.independent_aw option either yes or no')
 end
 
-% error in guess runs the cost funciton to see if there is an error in
+% error in guess, runs the cost funciton to see if there is an error in
 % guess.
 guess_error=nested_opt_cost_sub1(Ej_guess, C_OM_ugPm3, Cstar_dry, activity_coefficient_AB,...
     q_alpha_molefrac_phase_split_org, mass_fraction_water_AB, molecular_weight);

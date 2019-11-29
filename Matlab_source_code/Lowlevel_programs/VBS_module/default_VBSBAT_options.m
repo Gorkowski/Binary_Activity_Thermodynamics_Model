@@ -32,7 +32,7 @@ VBSBAT_options.optimization.fit_tolerance=10^-5;
 VBSBAT_options.optimization.guess_refinement_threshold=10^-5;
 VBSBAT_options.optimization.global_NumTrialPoints=100;
 VBSBAT_options.optimization.global_NumStageOnePoints=10;
-VBSBAT_options.optimization.MaxIter=250;
+VBSBAT_options.optimization.MaxIter=500;
 VBSBAT_options.optimization.opt_method='fmincon'; % 'global' or 'fmincon' or 'none'
 VBSBAT_options.optimization.independent_aw='yes';
 % if the C OA mass vs aw doesn't look consitent at low RHs change

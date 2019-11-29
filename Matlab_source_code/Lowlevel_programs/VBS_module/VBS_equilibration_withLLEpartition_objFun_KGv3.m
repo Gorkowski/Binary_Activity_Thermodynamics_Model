@@ -90,7 +90,7 @@ Ej_new=(1+Cstar_j_used./Coaaq_via_Ej_guess).^-1;
 
 % calculate new mass values
 Coa_j_new=Ej_new.*C_OM_ugPm3;
-Coa_new_viaEj=sum(Coa_j);
+Coa_new_viaEj=sum(Coa_j_new); % corrected error, so that this uses the new value
 
 % alpha masses
 Coa_j_alpha_new=Coa_j.*q_alpha;
