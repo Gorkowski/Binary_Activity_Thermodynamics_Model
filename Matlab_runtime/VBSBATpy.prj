@@ -1,0 +1,209 @@
+<deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
+  <configuration build-checksum="308990388" file="F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_runtime\VBSBATpy.prj" location="F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_runtime" name="VBSBATpy" preferred-package-location="F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_runtime\VBSBATpy\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.library" target-name="Library Compiler">
+    <param.appname>VBSBATpy</param.appname>
+    <param.icon />
+    <param.icons />
+    <param.version>1.0</param.version>
+    <param.authnamewatermark>Kyle Gorkowski</param.authnamewatermark>
+    <param.email />
+    <param.company />
+    <param.summary />
+    <param.description />
+    <param.screenshot>${PROJECT_ROOT}\BAT_logo\BAT_Splash_image.png</param.screenshot>
+    <param.guid />
+    <param.installpath.string>\VBSBATpy\</param.installpath.string>
+    <param.installpath.combo>option.installpath.programfiles</param.installpath.combo>
+    <param.logo>${PROJECT_ROOT}\BAT_logo\BAT_installer_logo.png</param.logo>
+    <param.install.notes />
+    <param.target.install.notes>You must have Python 2.7, 3.5, and/or 3.6 on your machine to install this package. Go to the directory to which setup.py and your package have been written. Then execute:
+
+        python setup.py install [options]
+
+For details, see the readme.txt distributed with this package.</param.target.install.notes>
+    <param.intermediate>${PROJECT_ROOT}\VBSBATpy\for_testing</param.intermediate>
+    <param.files.only>${PROJECT_ROOT}\VBSBATpy\for_redistribution_files_only</param.files.only>
+    <param.output>${PROJECT_ROOT}\VBSBATpy\for_redistribution</param.output>
+    <param.logdir>${PROJECT_ROOT}\VBSBATpy</param.logdir>
+    <param.enable.clean.build>false</param.enable.clean.build>
+    <param.user.defined.mcr.options />
+    <param.target.type>subtarget.python.module</param.target.type>
+    <param.support.packages />
+    <param.namespace />
+    <param.classorg />
+    <param.web.mcr>false</param.web.mcr>
+    <param.package.mcr>true</param.package.mcr>
+    <param.no.mcr>false</param.no.mcr>
+    <param.web.mcr.name>MyAppInstaller_web</param.web.mcr.name>
+    <param.package.mcr.name>MyAppInstaller_mcr</param.package.mcr.name>
+    <param.no.mcr.name>MyAppInstaller_app</param.no.mcr.name>
+    <param.windows.command.prompt>true</param.windows.command.prompt>
+    <param.create.log>false</param.create.log>
+    <param.log.file />
+    <param.user.only.registration>false</param.user.only.registration>
+    <param.assembly.type>false</param.assembly.type>
+    <param.encryption.key.file />
+    <param.net.enable.remoting>false</param.net.enable.remoting>
+    <param.net.tsa.enable>false</param.net.tsa.enable>
+    <param.net.tsa.assembly />
+    <param.net.tsa.interface />
+    <param.net.tsa.namespace />
+    <param.net.tsa.superclass>Class1</param.net.tsa.superclass>
+    <param.net.tsa.metadata />
+    <param.net.tsa.metadata.assembly>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_runtime</param.net.tsa.metadata.assembly>
+    <param.net.saved.interface />
+    <param.cpp.api>option.cpp.all</param.cpp.api>
+    <unset>
+      <param.icon />
+      <param.icons />
+      <param.version />
+      <param.email />
+      <param.company />
+      <param.summary />
+      <param.description />
+      <param.guid />
+      <param.installpath.string />
+      <param.installpath.combo />
+      <param.install.notes />
+      <param.intermediate />
+      <param.files.only />
+      <param.output />
+      <param.logdir />
+      <param.enable.clean.build />
+      <param.user.defined.mcr.options />
+      <param.support.packages />
+      <param.namespace />
+      <param.classorg />
+      <param.no.mcr />
+      <param.web.mcr.name />
+      <param.package.mcr.name />
+      <param.no.mcr.name />
+      <param.windows.command.prompt />
+      <param.create.log />
+      <param.log.file />
+      <param.user.only.registration />
+      <param.assembly.type />
+      <param.encryption.key.file />
+      <param.net.enable.remoting />
+      <param.net.tsa.enable />
+      <param.net.tsa.assembly />
+      <param.net.tsa.interface />
+      <param.net.tsa.namespace />
+      <param.net.tsa.superclass />
+      <param.net.tsa.metadata />
+      <param.net.tsa.metadata.assembly />
+      <param.net.saved.interface />
+      <param.cpp.api />
+    </unset>
+    <fileset.exports>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Highlevel_programs\Run_VBSBAT_from_input_file.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\BAT_module\BAT_activity_calc_with_refinement_v1.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\VBS_module\default_VBSBAT_options.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\VBS_module\VBS_BAT_simulation_v2.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\VBS_module\VBS_equilibration_extractCsat_withLLEpartition_KGv2.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\VBS_module\VBS_equilibration_withLLEpartition_KGv2.m</file>
+    </fileset.exports>
+    <fileset.classes>
+      <entity.package name="">
+        <entity.class name="Class1">
+          <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\BAT_module\BAT_activity_calc_with_refinement_v1.m</file>
+          <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\VBS_module\default_VBSBAT_options.m</file>
+          <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Highlevel_programs\Run_VBSBAT_from_input_file.m</file>
+          <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\VBS_module\VBS_BAT_simulation_v2.m</file>
+          <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\VBS_module\VBS_equilibration_extractCsat_withLLEpartition_KGv2.m</file>
+          <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\VBS_module\VBS_equilibration_withLLEpartition_KGv2.m</file>
+        </entity.class>
+      </entity.package>
+    </fileset.classes>
+    <fileset.resources />
+    <fileset.depfun>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\BAT_module\BAT_properties_calculation_v1.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\BAT_module\biphasic_to_single_phase_RH_master_v4.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\BAT_module\check_BAT_functional_group_inputs_v1.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\BAT_module\finds_PhaseSep_and_activity_curve_dips_v2.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\BAT_module\finds_PhaseSep_w_and_org.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\BAT_module\q_alpha_transfer_vs_aw_calc_v1.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\BAT_module\single_phase_O2C_point_KGv3.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\matlab_graphing_related\plot_VBSBAT_simple_graph.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\NN_module\invert_NN_85to90_transfer_weights.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\NN_module\inverted_NNMcGlashan_biphasic_aqPhase85to1_KGv4.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\NN_module\inverted_NNMcGlashan_biphasic_aqPhase_KGv4.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\NN_module\inverted_NNMcGlashan_biphasic_orgPhase85to1_KGv4.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\NN_module\inverted_NNMcGlashan_biphasic_orgPhase_KGv4.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\NN_module\inverted_NNMcGlashan_singlephase_only85to1_KGv4.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\NN_module\inverted_NNMcGlashan_singlephase_only_KGv4.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\NN_module\inverted_NNMcGlashan_v8.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\NN_module\NN_VBSBAT_layers20_individProp_v2.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\NN_module\NN_VBSBAT_layers24_meanProp_v1.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\NN_module\NN_VBSBAT_layers28_individProp_v1.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\NN_module\VBSBAT_nerual_network_estimate_v1.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\output_calculation_module\bulk_kappa_v1.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\output_calculation_module\get_default_kappa_CCN_settings.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\read_write_functions\gen_simple_output_data_from_VBSBAT_sim.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\read_write_functions\read_input_file.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\read_write_functions\write_VBSBAT_options_to_cell.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\read_write_functions\write_VBSBAT_output_files.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\tools\convert_chemical_structure_to_OH_eqv_v3.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\tools\exp_wlimiter.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\tools\ln_zeropass.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\tools\log10_zeropass.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\tools\molar_based_means.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\tools\Org_density_Estimate_KGv1.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\tools\replace_data_A_to_B_KGv1.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\tools\round_extremes_v1.m</file>
+      <file>F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_source_code\Lowlevel_programs\VBS_module\VBS_equilibration_withLLEpartition_objFun_KGv3.m</file>
+    </fileset.depfun>
+    <fileset.package />
+    <fileset.examples />
+    <fileset.documentation />
+    <build-deliverables>
+      <file location="${PROJECT_ROOT}\VBSBATpy\for_testing" name="readme.txt" optional="true">F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_runtime\VBSBATpy\for_testing\readme.txt</file>
+      <file location="${PROJECT_ROOT}\VBSBATpy\for_testing" name="setup.py" optional="false">F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_runtime\VBSBATpy\for_testing\setup.py</file>
+      <file location="${PROJECT_ROOT}\VBSBATpy\for_testing" name="VBSBATpy" optional="false">F:\OneDrive\Professional Current DnD\McGill_Docs\BAT_local\Binary_Activity_Thermodynamics_Model\Matlab_runtime\VBSBATpy\for_testing\VBSBATpy</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>C:\Program Files\MATLAB\R2018b</root>
+      <toolboxes>
+        <toolbox name="matlabcoder" />
+        <toolbox name="embeddedcoder" />
+        <toolbox name="gpucoder" />
+        <toolbox name="neuralnetwork" />
+      </toolboxes>
+      <toolbox>
+        <matlabcoder>
+          <enabled>true</enabled>
+        </matlabcoder>
+      </toolbox>
+      <toolbox>
+        <embeddedcoder>
+          <enabled>true</enabled>
+        </embeddedcoder>
+      </toolbox>
+      <toolbox>
+        <gpucoder>
+          <enabled>true</enabled>
+        </gpucoder>
+      </toolbox>
+      <toolbox>
+        <neuralnetwork>
+          <enabled>true</enabled>
+        </neuralnetwork>
+      </toolbox>
+    </matlab>
+    <platform>
+      <unix>false</unix>
+      <mac>false</mac>
+      <windows>true</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.0</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>win64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>

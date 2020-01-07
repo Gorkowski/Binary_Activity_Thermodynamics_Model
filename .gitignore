@@ -105,3 +105,4 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+Matlab_runtime/VBSBATpy/for_redistribution/MyAppInstaller_mcr.exe
